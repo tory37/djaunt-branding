@@ -118,27 +118,27 @@
     <div style="display:flex;flex-direction:column;gap:12px">
       <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#8E887A">03 — Elemental dragons</div>
       <h2 style="margin:0;font-family:'Archivo',sans-serif;font-weight:700;letter-spacing:-0.02em;font-size:clamp(28px,4vw,44px);line-height:1.08">Nine themes, one system</h2>
-      <p style="margin:0;max-width:62ch;font-size:16px;line-height:1.6;color:#8E887A;text-wrap:pretty">Each theme swaps the accent and the background family. Type, spacing, geometry, and the semantic colors never move. One theme per surface — an element is a mood for a whole product, not a palette to pick from per component.</p>
+      <p style="margin:0;max-width:62ch;font-size:16px;line-height:1.6;color:#8E887A;text-wrap:pretty">Each theme swaps the accent and the background family. Type, spacing, geometry, and the semantic colors never move. One theme per surface — an element is a mood for a whole product, not a palette to pick from per component. Click through the set — the mark and the components below move with it.</p>
     </div>
 
     <div style="display:flex;flex-wrap:wrap;gap:8px">
-      <button type="button" onClick="{{ pick0 }}" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;padding:9px 14px;border-radius:3px;cursor:pointer;background:#14120F;border:1px solid #2A251C;color:#C8C0AE" style-hover="background:#1C1913;border-color:#3A342A;color:#EDE6D6">hoard</button>
-      <button type="button" onClick="{{ pick1 }}" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;padding:9px 14px;border-radius:3px;cursor:pointer;background:#14120F;border:1px solid #2A251C;color:#C8C0AE" style-hover="background:#1C1913;border-color:#3A342A;color:#EDE6D6">fire</button>
-      <button type="button" onClick="{{ pick2 }}" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;padding:9px 14px;border-radius:3px;cursor:pointer;background:#14120F;border:1px solid #2A251C;color:#C8C0AE" style-hover="background:#1C1913;border-color:#3A342A;color:#EDE6D6">frost</button>
-      <button type="button" onClick="{{ pick3 }}" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;padding:9px 14px;border-radius:3px;cursor:pointer;background:#14120F;border:1px solid #2A251C;color:#C8C0AE" style-hover="background:#1C1913;border-color:#3A342A;color:#EDE6D6">storm</button>
-      <button type="button" onClick="{{ pick4 }}" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;padding:9px 14px;border-radius:3px;cursor:pointer;background:#14120F;border:1px solid #2A251C;color:#C8C0AE" style-hover="background:#1C1913;border-color:#3A342A;color:#EDE6D6">stone</button>
-      <button type="button" onClick="{{ pick5 }}" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;padding:9px 14px;border-radius:3px;cursor:pointer;background:#14120F;border:1px solid #2A251C;color:#C8C0AE" style-hover="background:#1C1913;border-color:#3A342A;color:#EDE6D6">venom</button>
-      <button type="button" onClick="{{ pick6 }}" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;padding:9px 14px;border-radius:3px;cursor:pointer;background:#14120F;border:1px solid #2A251C;color:#C8C0AE" style-hover="background:#1C1913;border-color:#3A342A;color:#EDE6D6">void</button>
-      <button type="button" onClick="{{ pick7 }}" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;padding:9px 14px;border-radius:3px;cursor:pointer;background:#14120F;border:1px solid #2A251C;color:#C8C0AE" style-hover="background:#1C1913;border-color:#3A342A;color:#EDE6D6">radiant</button>
-      <button type="button" onClick="{{ pick8 }}" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;padding:9px 14px;border-radius:3px;cursor:pointer;background:#14120F;border:1px solid #2A251C;color:#C8C0AE" style-hover="background:#1C1913;border-color:#3A342A;color:#EDE6D6">deep</button>
+      <button type="button" onClick="{{ pick0 }}" style="{{ style0 }}">hoard</button>
+      <button type="button" onClick="{{ pick1 }}" style="{{ style1 }}">fire</button>
+      <button type="button" onClick="{{ pick2 }}" style="{{ style2 }}">frost</button>
+      <button type="button" onClick="{{ pick3 }}" style="{{ style3 }}">storm</button>
+      <button type="button" onClick="{{ pick4 }}" style="{{ style4 }}">stone</button>
+      <button type="button" onClick="{{ pick5 }}" style="{{ style5 }}">venom</button>
+      <button type="button" onClick="{{ pick6 }}" style="{{ style6 }}">void</button>
+      <button type="button" onClick="{{ pick7 }}" style="{{ style7 }}">radiant</button>
+      <button type="button" onClick="{{ pick8 }}" style="{{ style8 }}">deep</button>
     </div>
 
-    <div style="border:1px solid #2A251C;border-radius:4px;overflow:hidden">
-      <div style="display:grid;grid-template-columns:1fr;background:{{ t.bg }}">
+    <div style="border:1px solid {{ t.border }};border-radius:4px;overflow:hidden">
+      <div style="display:grid;grid-template-columns:1fr;background:{{ t.bg }};transition:background .25s">
         <div style="padding:clamp(28px,4vw,48px);display:flex;flex-direction:column;gap:28px">
           <div style="display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
             <div style="display:flex;align-items:center;gap:14px">
-              <img src="brand/logo/djaunt-icon-bone.svg" alt="" style="width:38px;height:auto">
+              <span aria-hidden="true" style="display:block;width:38px;height:38px;background-color:{{ t.accent }};-webkit-mask:url('brand/logo/djaunt-icon.svg') center/contain no-repeat;mask:url('brand/logo/djaunt-icon.svg') center/contain no-repeat;transition:background-color .25s"></span>
               <span style="font-family:'Archivo',sans-serif;font-weight:700;letter-spacing:-0.02em;font-size:20px;color:#EDE6D6">Djaunt</span>
             </div>
             <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;padding:6px 10px;border-radius:2px;color:{{ t.accent }};border:1px solid {{ t.border }}">data-dj-theme="{{ t.key }}"</span>
@@ -153,7 +153,22 @@
             <button type="button" style="font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:500;padding:11px 20px;border-radius:3px;cursor:pointer;background:transparent;border:1px solid {{ t.border }};color:#EDE6D6">Secondary</button>
             <span style="font-family:'IBM Plex Sans',sans-serif;font-size:14px;color:{{ t.accent }};border-bottom:1px solid {{ t.accentDeep }}">Inline link</span>
           </div>
-          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:12px">
+          <div style="display:flex;gap:4px;border-bottom:1px solid {{ t.border }}">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;padding:10px 4px;color:{{ t.accent }};border-bottom:2px solid {{ t.accent }}">Overview</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;padding:10px 14px;color:#8E887A">Activity</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;padding:10px 14px;color:#8E887A">Settings</span>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+            <input type="text" placeholder="Search the archive…" readonly style="font-family:'IBM Plex Sans',sans-serif;font-size:14px;padding:10px 14px;border-radius:3px;background:{{ t.surface }};border:1px solid {{ t.border }};color:#EDE6D6;min-width:220px">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;padding:5px 10px;border-radius:999px;border:1px solid {{ t.accentDeep }};color:{{ t.accent }}">tag</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;padding:5px 10px;border-radius:999px;border:1px solid {{ t.border }};color:#8E887A">tag</span>
+            <span style="font-family:'IBM Plex Sans',sans-serif;font-size:13px;font-weight:500;padding:8px 16px;border-radius:3px;background:{{ t.accent }};color:{{ t.bg }};box-shadow:{{ t.glow }}">● Playing</span>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:12px">
+            <div style="background:{{ t.surface }};border:1px solid {{ t.border }};border-radius:4px;padding:18px;display:flex;flex-direction:column;gap:8px">
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#8E887A">Streams</span>
+              <span style="font-family:'Archivo',sans-serif;font-weight:700;font-size:28px;color:{{ t.accent }}">4,102</span>
+            </div>
             <div style="background:{{ t.surface }};border:1px solid {{ t.border }};border-radius:4px;padding:18px;display:flex;flex-direction:column;gap:12px">
               <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#8E887A">Surface</span>
               <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#C8C0AE">{{ t.surface }}</span>
@@ -367,7 +382,13 @@ class Component extends DCLogic {
     const t = THEMES[idx] || THEMES[0];
     const glow = (this.props.glow ?? true) ? `0 0 24px ${t.accent}59` : 'none';
     const vals = { t: { ...t, glow } };
-    THEMES.forEach((_, i) => { vals['pick' + i] = this.pick(i); });
+    const base = "font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;padding:9px 14px;border-radius:3px;cursor:pointer;transition:background .2s,border-color .2s,color .2s;";
+    THEMES.forEach((th, i) => {
+      vals['pick' + i] = this.pick(i);
+      vals['style' + i] = base + (i === idx
+        ? `background:${th.accentDeep};border:1px solid ${th.accent};color:${th.accent};`
+        : `background:#14120F;border:1px solid #2A251C;color:#C8C0AE;`);
+    });
     return vals;
   }
 }
