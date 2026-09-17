@@ -11,6 +11,7 @@ brand/
   tokens/
     tokens.css           CSS custom properties — import this
     tokens.json          design-tokens spec, for build pipelines
+vscode-theme/             VS Code color theme extension, one per element — see its README
 ```
 
 ## Use in a project

@@ -1,0 +1,73 @@
+{
+  "name": "djaunt-themes",
+  "displayName": "Djaunt",
+  "description": "Djaunt brand color themes for VS Code — gold Hoard plus eight elemental variants (fire, frost, storm, stone, venom, void, radiant, deep).",
+  "version": "1.0.0",
+  "publisher": "djaunt",
+  "license": "SEE LICENSE IN ../README.md",
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "theme",
+    "color-theme",
+    "dark theme",
+    "djaunt"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tory37/djaunt-branding"
+  },
+  "contributes": {
+    "themes": [
+      {
+        "label": "Djaunt Hoard",
+        "uiTheme": "vs-dark",
+        "path": "./themes/djaunt-hoard-color-theme.json"
+      },
+      {
+        "label": "Djaunt Fire",
+        "uiTheme": "vs-dark",
+        "path": "./themes/djaunt-fire-color-theme.json"
+      },
+      {
+        "label": "Djaunt Frost",
+        "uiTheme": "vs-dark",
+        "path": "./themes/djaunt-frost-color-theme.json"
+      },
+      {
+        "label": "Djaunt Storm",
+        "uiTheme": "vs-dark",
+        "path": "./themes/djaunt-storm-color-theme.json"
+      },
+      {
+        "label": "Djaunt Stone",
+        "uiTheme": "vs-dark",
+        "path": "./themes/djaunt-stone-color-theme.json"
+      },
+      {
+        "label": "Djaunt Venom",
+        "uiTheme": "vs-dark",
+        "path": "./themes/djaunt-venom-color-theme.json"
+      },
+      {
+        "label": "Djaunt Void",
+        "uiTheme": "vs-dark",
+        "path": "./themes/djaunt-void-color-theme.json"
+      },
+      {
+        "label": "Djaunt Radiant",
+        "uiTheme": "vs-dark",
+        "path": "./themes/djaunt-radiant-color-theme.json"
+      },
+      {
+        "label": "Djaunt Deep",
+        "uiTheme": "vs-dark",
+        "path": "./themes/djaunt-deep-color-theme.json"
+      }
+    ]
+  }
+}
