@@ -1,0 +1,15 @@
+{
+  "name": "Djaunt Branding",
+  "short_name": "Djaunt Branding",
+  "description": "The brand's design system — logo, color tokens, type, and guidelines every Djaunt surface builds on.",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "background_color": "#0D0C0A",
+  "theme_color": "#0D0C0A",
+  "icons": [
+    { "src": "brand/favicon/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "brand/favicon/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "brand/favicon/icon-512-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
