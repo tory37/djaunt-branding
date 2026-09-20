@@ -1,0 +1,63 @@
+/* Djaunt callout — a bordered note box, optionally colored by semantic
+   meaning (success/warning/danger/info). Blended from two independent
+   implementations: djaunt-bean-guide's full box (a headline + body, used
+   for one big safety warning) and cartoonist-drawing-curriculum's compact
+   do/skip note (a small bold tag + inline text). This component supports
+   both: use an <h3> for a headline, or .dj-callout-tag for a short label.
+   Consumes role variables from tokens.css only. */
+
+.dj-callout {
+  background: var(--dj-surface);
+  border: var(--dj-border-width) solid var(--dj-border);
+  border-left: 3px solid var(--dj-border);
+  border-radius: var(--dj-radius-md);
+  padding: 16px 20px;
+  margin: 16px 0;
+}
+
+.dj-callout-success { border-left-color: var(--dj-success); }
+.dj-callout-warning { border-left-color: var(--dj-warning); }
+.dj-callout-danger { border-left-color: var(--dj-danger); }
+.dj-callout-info { border-left-color: var(--dj-info); }
+
+.dj-callout h3 {
+  font-family: var(--dj-font-display);
+  font-size: 1.15rem;
+  margin: 0 0 10px;
+}
+
+.dj-callout-success h3 { color: var(--dj-success); }
+.dj-callout-warning h3 { color: var(--dj-warning); }
+.dj-callout-danger h3 { color: var(--dj-danger); }
+.dj-callout-info h3 { color: var(--dj-info); }
+
+.dj-callout p {
+  margin: 0 0 12px;
+}
+
+.dj-callout p:last-child {
+  margin-bottom: 0;
+}
+
+.dj-callout ul {
+  margin: 12px 0;
+  padding-left: 22px;
+}
+
+.dj-callout li {
+  margin-bottom: 6px;
+}
+
+.dj-callout-tag {
+  display: block;
+  font-weight: 700;
+  font-size: 11.5px;
+  text-transform: uppercase;
+  letter-spacing: var(--dj-tracking-label);
+  margin-bottom: 5px;
+}
+
+.dj-callout-success .dj-callout-tag { color: var(--dj-success); }
+.dj-callout-warning .dj-callout-tag { color: var(--dj-warning); }
+.dj-callout-danger .dj-callout-tag { color: var(--dj-danger); }
+.dj-callout-info .dj-callout-tag { color: var(--dj-info); }

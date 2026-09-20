@@ -22,6 +22,7 @@ you want consumers to be able to freeze on a version.
 | [`popup/`](popup/) | Header, buttons, switch, segmented control, pill, inputs, footer — a small panel UI. |
 | [`buttons/`](buttons/) | Primary/ghost/neutral buttons for a page — hero, footer, in-app actions. |
 | [`steps/`](steps/) | Connected, auto-numbered vertical steps — "Get started," a method. |
+| [`callout/`](callout/) | Bordered note box, optionally colored by semantic meaning. |
 
 Each new component lands here after it's proven itself in at least one real
 site — extracted and blended, not designed in the abstract.
