@@ -21,6 +21,8 @@
 <link rel="stylesheet" href="components/buttons/buttons.css">
 <link rel="stylesheet" href="components/steps/steps.css">
 <link rel="stylesheet" href="components/callout/callout.css">
+<link rel="stylesheet" href="components/progress/progress.css">
+<link rel="stylesheet" href="components/badge/badge.css">
 <style>
   html, body { margin: 0; padding: 0; background: #0D0C0A; }
   body { font-family: 'IBM Plex Sans', Helvetica, sans-serif; color: #EDE6D6; -webkit-font-smoothing: antialiased; }
@@ -409,6 +411,34 @@
         <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#D4A017">components/list-row</div>
         <iframe src="components/list-row/demo.html" title="dj-list-row demo" style="width:100%;height:290px;border:1px solid #2A251C;border-radius:4px;background:#0D0C0A;"></iframe>
         <span style="font-size:14px;line-height:1.55;color:#8E887A">Collapsible rows in a scrollable list — blended from three djaunt-browser-tools extensions that had each built it separately.</span>
+      </div>
+
+      <div style="background:#14120F;border:1px solid #2A251C;border-radius:4px;padding:28px;display:flex;flex-direction:column;gap:20px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#D4A017">components/progress</div>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div>
+            <div class="dj-bar-label">3 of 5 steps complete</div>
+            <div class="dj-bar-track"><div class="dj-bar-fill" style="width:60%"></div></div>
+          </div>
+          <div>
+            <div class="dj-bar-label">All checks passed</div>
+            <div class="dj-bar-track"><div class="dj-bar-fill dj-bar-fill-success" style="width:100%"></div></div>
+          </div>
+        </div>
+        <span style="font-size:14px;line-height:1.55;color:#8E887A">A fill-driven meter — blended from djaunt-bean-guide's pot progress and cartoonist-drawing-curriculum's overall bar.</span>
+      </div>
+
+      <div style="background:#14120F;border:1px solid #2A251C;border-radius:4px;padding:28px;display:flex;flex-direction:column;gap:20px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#D4A017">components/badge</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center">
+          <span class="dj-badge">draft</span>
+          <span class="dj-badge dj-badge-accent">current</span>
+          <span class="dj-badge dj-badge-success">complete</span>
+          <span class="dj-badge dj-badge-warning">low coverage</span>
+          <span class="dj-badge dj-badge-danger">critical</span>
+          <span class="dj-badge dj-badge-pill dj-badge-accent">in progress</span>
+        </div>
+        <span style="font-size:14px;line-height:1.55;color:#8E887A">A small uppercase tag, colored by a custom property — blended from djaunt-dot-agents, cartoonist-drawing-curriculum, and djaunt-bean-guide.</span>
       </div>
 
     </div>
