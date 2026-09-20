@@ -18,6 +18,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="brand/tokens/tokens.css">
+<link rel="stylesheet" href="components/buttons/buttons.css">
+<link rel="stylesheet" href="components/steps/steps.css">
+<link rel="stylesheet" href="components/callout/callout.css">
 <style>
   html, body { margin: 0; padding: 0; background: #0D0C0A; }
   body { font-family: 'IBM Plex Sans', Helvetica, sans-serif; color: #EDE6D6; -webkit-font-smoothing: antialiased; }
@@ -325,7 +328,7 @@
     </div>
   </section>
 
-  <section style="padding:clamp(56px,8vw,96px) 0;display:flex;flex-direction:column;gap:40px">
+  <section style="padding:clamp(56px,8vw,96px) 0;border-bottom:1px solid #2A251C;display:flex;flex-direction:column;gap:40px">
     <div style="display:flex;flex-direction:column;gap:12px">
       <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#8E887A">07 — For agents</div>
       <h2 style="margin:0;font-family:'Archivo',sans-serif;font-weight:700;letter-spacing:-0.02em;font-size:clamp(28px,4vw,44px);line-height:1.08">Point a tool at this repo</h2>
@@ -346,6 +349,68 @@
       <img src="brand/logo/djaunt-icon-gold.svg" alt="" style="width:28px;height:auto;opacity:0.8">
       <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#615C52">Djaunt — guidelines v1 — 2026</span>
     </div>
+  </section>
+
+  <section style="padding:clamp(56px,8vw,96px) 0;display:flex;flex-direction:column;gap:40px">
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#8E887A">08 — Shared components</div>
+      <h2 style="margin:0;font-family:'Archivo',sans-serif;font-weight:700;letter-spacing:-0.02em;font-size:clamp(28px,4vw,44px);line-height:1.08">Pulled once, not rebuilt per repo</h2>
+      <p style="margin:0;max-width:66ch;font-size:16px;line-height:1.6;color:#8E887A;text-wrap:pretty">Built on <span style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#EDE6D6">tokens.css</span>, not React — plain CSS and a markup contract, extracted from real Djaunt sites once the same pattern showed up twice. See <a href="components/">components/</a> for the full list.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:20px">
+
+      <div style="background:#14120F;border:1px solid #2A251C;border-radius:4px;padding:28px;display:flex;flex-direction:column;gap:20px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#D4A017">components/buttons</div>
+        <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center">
+          <a class="dj-button dj-button-primary" href="components/buttons/">Primary</a>
+          <a class="dj-button dj-button-ghost" href="components/buttons/">Ghost</a>
+          <button type="button" class="dj-button">Neutral</button>
+          <button type="button" class="dj-button-text-danger">Remove</button>
+        </div>
+        <span style="font-size:14px;line-height:1.55;color:#8E887A">Hero and footer CTAs, plus plain in-app actions — ported from djaunt-dot-agents and djaunt-bean-guide.</span>
+      </div>
+
+      <div style="background:#14120F;border:1px solid #2A251C;border-radius:4px;padding:28px;display:flex;flex-direction:column;gap:20px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#D4A017">components/callout</div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div class="dj-callout dj-callout-danger" style="padding:12px 16px;margin:0;">
+            <span class="dj-callout-tag">Skip / deprioritize</span>
+            One rule that actually matters.
+          </div>
+          <div class="dj-callout dj-callout-success" style="padding:12px 16px;margin:0;">
+            <span class="dj-callout-tag">Why it matters</span>
+            Inline text right after the tag.
+          </div>
+        </div>
+        <span style="font-size:14px;line-height:1.55;color:#8E887A">A bordered note, colored by semantic meaning — blended from djaunt-bean-guide and cartoonist-drawing-curriculum.</span>
+      </div>
+
+      <div style="background:#14120F;border:1px solid #2A251C;border-radius:4px;padding:28px;display:flex;flex-direction:column;gap:20px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#D4A017">components/steps</div>
+        <div class="dj-steps">
+          <div class="dj-step" style="padding-bottom:18px;">
+            <h3 style="font-size:0.95rem;">Clone the repo</h3>
+          </div>
+          <div class="dj-step" style="padding-bottom:0;">
+            <h3 style="font-size:0.95rem;">Run the sync</h3>
+          </div>
+        </div>
+        <span style="font-size:14px;line-height:1.55;color:#8E887A">A connected, auto-numbered list — the number is CSS-generated, never hardcoded in markup.</span>
+      </div>
+
+      <div style="background:#14120F;border:1px solid #2A251C;border-radius:4px;padding:28px;display:flex;flex-direction:column;gap:20px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#D4A017">components/popup</div>
+        <iframe src="components/popup/demo.html" title="dj-popup demo" style="width:100%;height:290px;border:1px solid #2A251C;border-radius:4px;background:#0D0C0A;"></iframe>
+        <span style="font-size:14px;line-height:1.55;color:#8E887A">Header, switch, segmented control, button, footer — the set that shipped seven djaunt-browser-tools extensions.</span>
+      </div>
+
+    </div>
+
+    <div style="background:#0A0908;border:1px solid #2A251C;border-radius:4px;padding:clamp(20px,3vw,28px);font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:1.9;color:#C8C0AE;overflow-x:auto;white-space:pre">&lt;link rel="stylesheet" href="brand/tokens/tokens.css"&gt;
+&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tory37/djaunt-branding@main/components/buttons/buttons.css"&gt;
+
+&lt;a class="dj-button dj-button-primary" href="..."&gt;Primary action&lt;/a&gt;</div>
   </section>
 </div>
 </x-dc>
