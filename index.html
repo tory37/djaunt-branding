@@ -363,10 +363,10 @@
       <div style="background:#14120F;border:1px solid #2A251C;border-radius:4px;padding:28px;display:flex;flex-direction:column;gap:20px">
         <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#D4A017">components/buttons</div>
         <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center">
-          <a class="dj-button dj-button-primary" href="components/buttons/">Primary</a>
-          <a class="dj-button dj-button-ghost" href="components/buttons/">Ghost</a>
-          <button type="button" class="dj-button">Neutral</button>
-          <button type="button" class="dj-button-text-danger">Remove</button>
+          <button type="button" class="dj-button dj-button-primary">Primary</button>
+          <button type="button" class="dj-button dj-button-ghost">Ghost</button>
+          <button type="button" class="dj-button" id="btn-demo-neutral">Neutral</button>
+          <button type="button" class="dj-button-text-danger" id="btn-demo-remove">Remove</button>
         </div>
         <span style="font-size:14px;line-height:1.55;color:#8E887A">Hero and footer CTAs, plus plain in-app actions — ported from djaunt-dot-agents and djaunt-bean-guide.</span>
       </div>
@@ -461,6 +461,17 @@ class Component extends DCLogic {
     return vals;
   }
 }
+</script>
+<script>
+  const removeBtn = document.getElementById('btn-demo-remove');
+  const neutralBtn = document.getElementById('btn-demo-neutral');
+  if (removeBtn && neutralBtn) {
+    removeBtn.addEventListener('click', () => {
+      const removed = neutralBtn.disabled;
+      neutralBtn.disabled = !removed;
+      removeBtn.textContent = removed ? 'Remove' : 'Restore';
+    });
+  }
 </script>
 </body>
 </html>

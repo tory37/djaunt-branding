@@ -67,6 +67,10 @@
   font-size: 13px;
 }
 
+.dj-button:active {
+  transform: translateY(1px);
+}
+
 .dj-button:focus-visible {
   outline: none;
   box-shadow: var(--dj-glow);
@@ -92,6 +96,10 @@
 
 .dj-button-text-danger:hover {
   color: color-mix(in srgb, var(--dj-danger) 80%, white);
+}
+
+.dj-button-text-danger:active {
+  transform: translateY(1px);
 }
 
 .dj-button-text-danger:focus-visible {

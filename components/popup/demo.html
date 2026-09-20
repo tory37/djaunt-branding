@@ -13,26 +13,62 @@
 </style>
 </head>
 <body>
-  <header class="dj-head" data-state="active">
+  <header class="dj-head" id="head" data-state="active">
     <span class="dj-mark" aria-hidden="true"></span>
     <span class="dj-titles">
       <span class="dj-wordmark" role="img" aria-label="Djaunt"></span>
       <h1 class="dj-title">Panel title</h1>
     </span>
-    <span class="dj-pill" data-state="active">on</span>
+    <span class="dj-pill" id="pill" data-state="active">on</span>
   </header>
   <div style="padding: 16px; display: flex; flex-direction: column; gap: 16px;">
-    <button type="button" class="dj-switch" role="switch" aria-checked="true" aria-label="Enable">
+    <button type="button" class="dj-switch" id="switch" role="switch" aria-checked="true" aria-label="Enable">
       <span class="dj-knob"></span>
     </button>
-    <div class="dj-seg-group" role="radiogroup" aria-label="mode">
-      <button type="button" class="dj-seg" role="radio" aria-checked="true">Auto</button>
-      <button type="button" class="dj-seg" role="radio" aria-checked="false">On</button>
-      <button type="button" class="dj-seg" role="radio" aria-checked="false">Off</button>
+    <div class="dj-seg-group" id="segmented" role="radiogroup" aria-label="mode">
+      <button type="button" class="dj-seg" role="radio" aria-checked="true" data-value="auto">Auto</button>
+      <button type="button" class="dj-seg" role="radio" aria-checked="false" data-value="on">On</button>
+      <button type="button" class="dj-seg" role="radio" aria-checked="false" data-value="off">Off</button>
     </div>
-    <button type="button" class="dj-btn">Reset</button>
+    <button type="button" class="dj-btn" id="reset">Reset</button>
     <p class="dj-hint">Helper copy, <code>inline code</code> included.</p>
-    <footer class="dj-foot" role="status">Applied</footer>
+    <footer class="dj-foot" id="foot" role="status">Applied — mode: auto</footer>
   </div>
+
+<script>
+  const head = document.getElementById('head');
+  const pill = document.getElementById('pill');
+  const swtch = document.getElementById('switch');
+  const segmented = document.getElementById('segmented');
+  const foot = document.getElementById('foot');
+
+  function render() {
+    const on = swtch.getAttribute('aria-checked') === 'true';
+    const mode = segmented.querySelector('[aria-checked="true"]').dataset.value;
+    head.dataset.state = on ? 'active' : 'idle';
+    pill.dataset.state = on ? 'active' : 'idle';
+    pill.textContent = on ? 'on' : 'off';
+    foot.textContent = on ? `Applied — mode: ${mode}` : 'Paused';
+  }
+
+  swtch.addEventListener('click', () => {
+    const on = swtch.getAttribute('aria-checked') === 'true';
+    swtch.setAttribute('aria-checked', String(!on));
+    render();
+  });
+
+  segmented.addEventListener('click', (e) => {
+    const seg = e.target.closest('.dj-seg');
+    if (!seg) return;
+    segmented.querySelectorAll('.dj-seg').forEach((s) => s.setAttribute('aria-checked', String(s === seg)));
+    render();
+  });
+
+  document.getElementById('reset').addEventListener('click', () => {
+    swtch.setAttribute('aria-checked', 'true');
+    segmented.querySelectorAll('.dj-seg').forEach((s) => s.setAttribute('aria-checked', String(s.dataset.value === 'auto')));
+    render();
+  });
+</script>
 </body>
 </html>
