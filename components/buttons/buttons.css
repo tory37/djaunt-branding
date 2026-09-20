@@ -1,0 +1,56 @@
+/* Djaunt buttons — for a marketing/docs page's hero and footer actions.
+   Distinct from components/popup's .dj-btn (a compact, full-width, mono
+   uppercase button built for a popup panel) — this is the sentence-case,
+   inline button djaunt-branding's own showcase draws as "Primary action" /
+   "Secondary", formalized here after djaunt-dot-agents built the same
+   pair independently. Consumes role variables from tokens.css only. */
+
+.dj-button {
+  font-family: var(--dj-font-body);
+  font-size: var(--dj-text-sm);
+  font-weight: 500;
+  padding: 11px 20px;
+  border-radius: var(--dj-radius-md);
+  cursor: pointer;
+  border: var(--dj-border-width) solid var(--dj-border);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  transition: background var(--dj-dur-base) var(--dj-ease),
+              border-color var(--dj-dur-base) var(--dj-ease),
+              color var(--dj-dur-base) var(--dj-ease);
+}
+
+.dj-button-primary {
+  background: var(--dj-accent);
+  color: var(--dj-on-accent);
+  border: none;
+  box-shadow: var(--dj-glow);
+}
+
+.dj-button-primary:hover {
+  background: var(--dj-accent-hi);
+  color: var(--dj-on-accent);
+}
+
+.dj-button-ghost {
+  background: transparent;
+  color: var(--dj-text);
+}
+
+.dj-button-ghost:hover {
+  background: var(--dj-surface-raised);
+  border-color: var(--dj-bone-500);
+  color: var(--dj-text);
+}
+
+.dj-button:focus-visible {
+  outline: none;
+  box-shadow: var(--dj-glow);
+}
+
+.dj-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
