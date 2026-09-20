@@ -23,12 +23,16 @@
 <link rel="stylesheet" href="components/callout/callout.css">
 <link rel="stylesheet" href="components/progress/progress.css">
 <link rel="stylesheet" href="components/badge/badge.css">
+<link rel="stylesheet" href="components/section-nav/section-nav.css">
+<script src="components/section-nav/section-nav.js" defer></script>
 <style>
+  html { scroll-behavior: smooth; }
   html, body { margin: 0; padding: 0; background: #0D0C0A; }
   body { font-family: 'IBM Plex Sans', Helvetica, sans-serif; color: #EDE6D6; -webkit-font-smoothing: antialiased; }
   * { box-sizing: border-box; }
   a { color: #F0C24B; text-decoration: none; border-bottom: 1px solid #6E4A0E; }
   a:hover { color: #F6D77E; border-bottom-color: #D4A017; }
+  section[id] { scroll-margin-top: 56px; }
 </style>
 </helmet>
 
@@ -40,7 +44,18 @@
     <p style="margin:0;max-width:62ch;font-size:clamp(16px,2vw,20px);line-height:1.6;color:#C8C0AE;text-wrap:pretty">One identity across music, software, and art. Gold dragon on warm near-black, bone as the second voice, and eight elemental variants for when a project needs a different mood. Everything here is enforced by <a href="brand/tokens/tokens.css">tokens.css</a> and described for agents in <a href="BRANDING.md">BRANDING.md</a>.</p>
   </header>
 
-  <section style="padding:clamp(56px,8vw,96px) 0;border-bottom:1px solid #2A251C;display:flex;flex-direction:column;gap:40px">
+  <nav class="dj-section-nav" aria-label="Section navigation">
+    <a class="dj-section-nav-link" href="#the-mark" data-dj-nav-target="the-mark">Mark</a>
+    <a class="dj-section-nav-link" href="#core-color" data-dj-nav-target="core-color">Color</a>
+    <a class="dj-section-nav-link" href="#elemental-dragons" data-dj-nav-target="elemental-dragons">Themes</a>
+    <a class="dj-section-nav-link" href="#typography" data-dj-nav-target="typography">Type</a>
+    <a class="dj-section-nav-link" href="#geometry-motion" data-dj-nav-target="geometry-motion">Geometry</a>
+    <a class="dj-section-nav-link" href="#terminal-code" data-dj-nav-target="terminal-code">Terminal</a>
+    <a class="dj-section-nav-link" href="#for-agents" data-dj-nav-target="for-agents">Agents</a>
+    <a class="dj-section-nav-link" href="#components" data-dj-nav-target="components">Components</a>
+  </nav>
+
+  <section id="the-mark" style="padding:clamp(56px,8vw,96px) 0;border-bottom:1px solid #2A251C;display:flex;flex-direction:column;gap:40px">
     <div style="display:flex;flex-direction:column;gap:12px">
       <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#8E887A">01 — The mark</div>
       <h2 style="margin:0;font-family:'Archivo',sans-serif;font-weight:700;letter-spacing:-0.02em;font-size:clamp(28px,4vw,44px);line-height:1.08">Three assets, one dragon</h2>
@@ -91,7 +106,7 @@
     </div>
   </section>
 
-  <section style="padding:clamp(56px,8vw,96px) 0;border-bottom:1px solid #2A251C;display:flex;flex-direction:column;gap:40px">
+  <section id="core-color" style="padding:clamp(56px,8vw,96px) 0;border-bottom:1px solid #2A251C;display:flex;flex-direction:column;gap:40px">
     <div style="display:flex;flex-direction:column;gap:12px">
       <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#8E887A">02 — Core color</div>
       <h2 style="margin:0;font-family:'Archivo',sans-serif;font-weight:700;letter-spacing:-0.02em;font-size:clamp(28px,4vw,44px);line-height:1.08">Gold, bone, ink</h2>
@@ -122,7 +137,7 @@
     </div>
   </section>
 
-  <section style="padding:clamp(56px,8vw,96px) 0;border-bottom:1px solid #2A251C;display:flex;flex-direction:column;gap:40px">
+  <section id="elemental-dragons" style="padding:clamp(56px,8vw,96px) 0;border-bottom:1px solid #2A251C;display:flex;flex-direction:column;gap:40px">
     <div style="display:flex;flex-direction:column;gap:12px">
       <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#8E887A">03 — Elemental dragons</div>
       <h2 style="margin:0;font-family:'Archivo',sans-serif;font-weight:700;letter-spacing:-0.02em;font-size:clamp(28px,4vw,44px);line-height:1.08">Nine themes, one system</h2>
@@ -218,7 +233,7 @@
     </div>
   </section>
 
-  <section style="padding:clamp(56px,8vw,96px) 0;border-bottom:1px solid #2A251C;display:flex;flex-direction:column;gap:40px">
+  <section id="typography" style="padding:clamp(56px,8vw,96px) 0;border-bottom:1px solid #2A251C;display:flex;flex-direction:column;gap:40px">
     <div style="display:flex;flex-direction:column;gap:12px">
       <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#8E887A">04 — Typography</div>
       <h2 style="margin:0;font-family:'Archivo',sans-serif;font-weight:700;letter-spacing:-0.02em;font-size:clamp(28px,4vw,44px);line-height:1.08">Archivo, Plex Sans, Plex Mono</h2>
@@ -249,7 +264,7 @@
     </div>
   </section>
 
-  <section style="padding:clamp(56px,8vw,96px) 0;border-bottom:1px solid #2A251C;display:flex;flex-direction:column;gap:40px">
+  <section id="geometry-motion" style="padding:clamp(56px,8vw,96px) 0;border-bottom:1px solid #2A251C;display:flex;flex-direction:column;gap:40px">
     <div style="display:flex;flex-direction:column;gap:12px">
       <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#8E887A">05 — Geometry &amp; motion</div>
       <h2 style="margin:0;font-family:'Archivo',sans-serif;font-weight:700;letter-spacing:-0.02em;font-size:clamp(28px,4vw,44px);line-height:1.08">Angular, hairline, one glow</h2>
@@ -300,7 +315,7 @@
     </div>
   </section>
 
-  <section style="padding:clamp(56px,8vw,96px) 0;border-bottom:1px solid #2A251C;display:flex;flex-direction:column;gap:40px">
+  <section id="terminal-code" style="padding:clamp(56px,8vw,96px) 0;border-bottom:1px solid #2A251C;display:flex;flex-direction:column;gap:40px">
     <div style="display:flex;flex-direction:column;gap:12px">
       <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#8E887A">06 — Terminal &amp; code</div>
       <h2 style="margin:0;font-family:'Archivo',sans-serif;font-weight:700;letter-spacing:-0.02em;font-size:clamp(28px,4vw,44px);line-height:1.08">Djaunt Hoard</h2>
@@ -330,7 +345,7 @@
     </div>
   </section>
 
-  <section style="padding:clamp(56px,8vw,96px) 0;border-bottom:1px solid #2A251C;display:flex;flex-direction:column;gap:40px">
+  <section id="for-agents" style="padding:clamp(56px,8vw,96px) 0;border-bottom:1px solid #2A251C;display:flex;flex-direction:column;gap:40px">
     <div style="display:flex;flex-direction:column;gap:12px">
       <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#8E887A">07 — For agents</div>
       <h2 style="margin:0;font-family:'Archivo',sans-serif;font-weight:700;letter-spacing:-0.02em;font-size:clamp(28px,4vw,44px);line-height:1.08">Point a tool at this repo</h2>
@@ -353,7 +368,7 @@
     </div>
   </section>
 
-  <section style="padding:clamp(56px,8vw,96px) 0;display:flex;flex-direction:column;gap:40px">
+  <section id="components" style="padding:clamp(56px,8vw,96px) 0;display:flex;flex-direction:column;gap:40px">
     <div style="display:flex;flex-direction:column;gap:12px">
       <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#8E887A">08 — Shared components</div>
       <h2 style="margin:0;font-family:'Archivo',sans-serif;font-weight:700;letter-spacing:-0.02em;font-size:clamp(28px,4vw,44px);line-height:1.08">Pulled once, not rebuilt per repo</h2>
@@ -439,6 +454,17 @@
           <span class="dj-badge dj-badge-pill dj-badge-accent">in progress</span>
         </div>
         <span style="font-size:14px;line-height:1.55;color:#8E887A">A small uppercase tag, colored by a custom property — blended from djaunt-dot-agents, cartoonist-drawing-curriculum, and djaunt-bean-guide.</span>
+      </div>
+
+      <div style="background:#14120F;border:1px solid #2A251C;border-radius:4px;padding:28px;display:flex;flex-direction:column;gap:20px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#D4A017">components/section-nav</div>
+        <nav aria-label="Example section navigation" style="display:flex;gap:16px;overflow-x:auto;padding:8px 0;border-bottom:1px solid #2A251C">
+          <span style="flex:none;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#D4A017;border-bottom:2px solid #D4A017;padding:6px 1px;white-space:nowrap">Mark</span>
+          <span style="flex:none;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#8E887A;padding:6px 1px;white-space:nowrap">Color</span>
+          <span style="flex:none;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#8E887A;padding:6px 1px;white-space:nowrap">Themes</span>
+          <span style="flex:none;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#8E887A;padding:6px 1px;white-space:nowrap">Type</span>
+        </nav>
+        <span style="font-size:14px;line-height:1.55;color:#8E887A">A sticky jump-link bar with scroll-spy — this very page uses the real thing at the top of it.</span>
       </div>
 
     </div>

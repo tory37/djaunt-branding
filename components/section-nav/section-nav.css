@@ -1,0 +1,49 @@
+/* Djaunt section nav — a sticky bar of anchor links for a single long page.
+   Blended from nothing yet real (djaunt-branding's own showcase page was
+   the first to need it, growing past a dozen sections) but designed for
+   the same shape every long single-page Djaunt site eventually wants:
+   docs pages, changelogs, a settings page with many groups. Pairs with
+   section-nav.js for scroll-spy active-state; the CSS alone still works
+   as a plain jump-link bar without it. Consumes role variables from
+   tokens.css only. */
+
+.dj-section-nav {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  display: flex;
+  gap: var(--dj-space-5);
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: var(--dj-space-3) 0;
+  background: var(--dj-bg);
+  border-bottom: var(--dj-border-width) solid var(--dj-border);
+}
+
+.dj-section-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.dj-section-nav-link {
+  flex: none;
+  font-family: var(--dj-font-mono);
+  font-size: var(--dj-text-xs);
+  letter-spacing: var(--dj-tracking-label);
+  text-transform: uppercase;
+  color: var(--dj-text-muted);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  padding: var(--dj-space-2) 1px;
+  white-space: nowrap;
+  transition: color var(--dj-dur-base) var(--dj-ease), border-color var(--dj-dur-base) var(--dj-ease);
+}
+
+.dj-section-nav-link:hover {
+  color: var(--dj-text);
+}
+
+.dj-section-nav-link-active {
+  color: var(--dj-accent);
+  border-bottom-color: var(--dj-accent);
+}

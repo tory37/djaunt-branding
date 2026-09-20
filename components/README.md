@@ -26,6 +26,7 @@ you want consumers to be able to freeze on a version.
 | [`list-row/`](list-row/) | A scrollable list of collapsible rows — disclosure caret, switch, remove, expanding body. |
 | [`progress/`](progress/) | A thin fill-driven meter — "3 of 5 steps," a completion percentage. |
 | [`badge/`](badge/) | A small uppercase tag — a category, a stage, a status, colored by a custom property. |
+| [`section-nav/`](section-nav/) | A sticky jump-link bar with scroll-spy — for any page long enough to need one. |
 
 Each new component lands here after it's proven itself in at least one real
 site — extracted and blended, not designed in the abstract.
