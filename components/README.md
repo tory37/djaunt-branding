@@ -23,6 +23,7 @@ you want consumers to be able to freeze on a version.
 | [`buttons/`](buttons/) | Primary/ghost/neutral buttons for a page — hero, footer, in-app actions. |
 | [`steps/`](steps/) | Connected, auto-numbered vertical steps — "Get started," a method. |
 | [`callout/`](callout/) | Bordered note box, optionally colored by semantic meaning. |
+| [`list-row/`](list-row/) | A scrollable list of collapsible rows — disclosure caret, switch, remove, expanding body. |
 
 Each new component lands here after it's proven itself in at least one real
 site — extracted and blended, not designed in the abstract.

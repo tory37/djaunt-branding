@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" data-dj-theme="hoard">
+<head>
+<meta charset="UTF-8">
+<title>dj-list-row demo</title>
+<link rel="stylesheet" href="../../brand/tokens/tokens.css">
+<link rel="stylesheet" href="../popup/base.css">
+<link rel="stylesheet" href="list-row.css">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  html, body { width: 100%; }
+  body { padding: 0; box-sizing: border-box; }
+  * { box-sizing: border-box; }
+  .dj-row-caret { display: block; }
+</style>
+</head>
+<body>
+  <div class="dj-list" id="list">
+    <div class="dj-row" id="row-1" data-open="false" data-state="active">
+      <div class="dj-row-head">
+        <button type="button" class="dj-row-disclose" aria-expanded="false">
+          <svg class="dj-row-caret" width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M3 1l5 4-5 4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+          <span class="dj-row-summary">
+            <span class="dj-row-line dj-row-line-from">example.com</span>
+            <span class="dj-row-line dj-row-line-to">staging.example.com</span>
+          </span>
+        </button>
+        <button type="button" class="dj-switch" role="switch" aria-checked="true" aria-label="Enable this row">
+          <span class="dj-knob"></span>
+        </button>
+        <button type="button" class="dj-row-remove" aria-label="Remove">✕</button>
+      </div>
+      <div class="dj-row-body">
+        <div class="dj-row-field">
+          <label class="dj-label" for="host-1">Host</label>
+          <input id="host-1" type="text" value="example.com">
+        </div>
+        <div class="dj-row-preview">
+          <code>example.com → staging.example.com</code>
+        </div>
+      </div>
+    </div>
+    <div class="dj-row" id="row-2" data-open="false" data-state="error">
+      <div class="dj-row-head">
+        <button type="button" class="dj-row-disclose" aria-expanded="false">
+          <svg class="dj-row-caret" width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M3 1l5 4-5 4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+          <span class="dj-row-summary">
+            <span class="dj-row-line dj-row-line-from">api.example.com</span>
+            <span class="dj-row-line dj-row-line-to">(invalid host)</span>
+          </span>
+        </button>
+        <button type="button" class="dj-switch" role="switch" aria-checked="false" aria-label="Enable this row">
+          <span class="dj-knob"></span>
+        </button>
+        <button type="button" class="dj-row-remove" aria-label="Remove">✕</button>
+      </div>
+      <div class="dj-row-body">
+        <div class="dj-row-field">
+          <label class="dj-label" for="host-2">Host</label>
+          <input id="host-2" type="text" value="bad host">
+        </div>
+        <p class="dj-row-error">Not a valid hostname.</p>
+      </div>
+    </div>
+  </div>
+  <p class="dj-list-empty" id="empty" hidden>No rows yet.</p>
+
+<script>
+  const list = document.getElementById('list');
+
+  list.addEventListener('click', (e) => {
+    const disclose = e.target.closest('.dj-row-disclose');
+    if (disclose) {
+      const row = disclose.closest('.dj-row');
+      const open = row.dataset.open === 'true';
+      row.dataset.open = String(!open);
+      disclose.setAttribute('aria-expanded', String(!open));
+      return;
+    }
+
+    const swtch = e.target.closest('.dj-switch');
+    if (swtch) {
+      const row = swtch.closest('.dj-row');
+      const on = swtch.getAttribute('aria-checked') === 'true';
+      swtch.setAttribute('aria-checked', String(!on));
+      if (row.dataset.state !== 'error') {
+        row.dataset.state = on ? 'idle' : 'active';
+      }
+      return;
+    }
+
+    const remove = e.target.closest('.dj-row-remove');
+    if (remove) {
+      const row = remove.closest('.dj-row');
+      row.remove();
+      if (!list.querySelector('.dj-row')) {
+        document.getElementById('empty').hidden = false;
+      }
+    }
+  });
+</script>
+</body>
+</html>
