@@ -36,10 +36,10 @@ tools)? Self-host instead:
 Themes: `hoard` (default gold), `fire`, `frost`, `storm`, `stone`, `venom`, `void`, `radiant`, `deep`.
 
 Shared components (buttons, switches, panels, …) live in `components/` and
-pull in the same way, pinned to a tag:
+pull in the same way:
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tory37/djaunt-branding@v1.0.0/components/popup/base.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tory37/djaunt-branding@main/components/popup/base.css">
 ```
 
 ## Pointing an agent at this repo
