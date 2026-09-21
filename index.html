@@ -636,6 +636,11 @@ class Component extends DCLogic {
   // on load no-ops because the target is still display:none at that point.
   function afterHydration(run) {
     if (document.getElementById('dc-root')) { run(); return; }
+    // No timeout here on purpose: a cold-cache reload (Cmd+Shift+R) refetches
+    // support.js, both React CDN bundles, fonts, and every component CSS file
+    // over the network instead of disk cache, which can push hydration well
+    // past any short fixed cutoff. There's no cost to just staying subscribed
+    // until #dc-root actually shows up, however long that takes.
     const observer = new MutationObserver(() => {
       if (document.getElementById('dc-root')) {
         observer.disconnect();
@@ -643,7 +648,6 @@ class Component extends DCLogic {
       }
     });
     observer.observe(document.documentElement, { childList: true, subtree: true });
-    setTimeout(() => observer.disconnect(), 8000);
   }
 
   afterHydration(() => {
