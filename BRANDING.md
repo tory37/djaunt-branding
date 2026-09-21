@@ -47,7 +47,8 @@ Import `brand/tokens/tokens.css` and use the variables. Never hardcode a hex.
 ### Roles (use these, not the raw scales)
 `--dj-bg`, `--dj-surface`, `--dj-surface-raised`, `--dj-border`,
 `--dj-text`, `--dj-text-muted`, `--dj-accent`, `--dj-accent-hi`,
-`--dj-accent-deep`, `--dj-on-accent`.
+`--dj-accent-deep`, `--dj-on-accent`, `--dj-accent-2`, `--dj-accent-3`,
+`--dj-accent-4`.
 
 ### Dark-first
 Dark is the brand, not a mode. Build dark, then add light only if the host
@@ -86,35 +87,35 @@ Body text at 4.5:1 minimum against its actual background; headline-scale type
 set text in `--dj-accent-deep` — those are fills and borders only.
 
 ### Categorical / multi-accent surfaces
-"One theme per surface" governs mood — which single accent a view is dressed
-in. It says nothing about a different kind of color some products genuinely
-need: several *simultaneous*, *meaningful* colors on one screen that aren't
+"One theme per surface" governs *mood* — which single accent a view is
+dressed in. Some products genuinely need a different kind of color on top of
+that: several *simultaneous*, *meaningful* colors on one screen that aren't
 about mood at all — a calendar's event categories, a status board's lanes, a
-gauge's deficient/caution/surplus zones. That's categorical color, not brand
-identity, and it doesn't get new elemental variants or reserved token names
-in `tokens.css` — every project's categories are its own domain, and inventing
-generic slots (`--dj-categorical-1`, etc.) for them would just become de facto
-brand tokens that recouple every consumer to values that were supposed to be
-project-specific.
+gauge's deficient/caution/surplus zones.
 
-When a project needs this:
-- Define your own custom properties for it, named for what they mean
-  (`--myapp-lane-prep`, not `--dj-*`) — this lives in the project, not here.
+Every element carries three more fixed roles for exactly this:
+`--dj-accent-2`, `--dj-accent-3`, `--dj-accent-4`. They're part of the core
+system, not something each project invents — hand-tuned per element (hue-
+rotated off that element's own `--dj-accent`, muted relative to it, each
+clearing 4.5:1 on that element's `--dj-bg`) so they stay "the same theme,
+doing something else" instead of an unrelated palette bolted on.
+
+Use them:
+- For coding categories/lanes/states that need to coexist on one themed
+  surface — never as a second mood accent, and never mixed with another
+  element's accents.
 - Check the four semantic colors first (`--dj-success`, `--dj-warning`,
-  `--dj-danger`, `--dj-info`) — already theme-independent and free to reuse if
-  your categories are actually a status or severity, even if you'd never
-  phrase it that way in your own domain language (a 3-state gauge is a
-  danger/warning/info triad whether or not the product calls it that).
-- Keep whatever you do define visually distinct from `--dj-accent`/
-  `--dj-accent-hi`, so a category color is never mistaken for the theme's own
-  mood accent.
-- Still hold the system's discipline: the same contrast bar, the same
-  shallow/angular geometry, no gradients — and keep the category count small
-  enough to still read as a system instead of noise.
-- Prefer hues that sit near the existing ink/bone/gold family (warm-neutral
-  rotations) over saturated primaries, so categorical color still reads as
-  "the same brand, doing something else" rather than an unrelated palette
-  bolted on.
+  `--dj-danger`, `--dj-info`) — theme-independent and free to reuse if your
+  categories are actually a status or severity, even if you'd never phrase it
+  that way in your own domain language (a 3-state gauge is a danger/warning/
+  info triad whether or not the product calls it that).
+- Only past four simultaneous categories on one surface, define additional
+  project-scoped tokens (named for what they mean, not `--dj-*`) rather than
+  asking this system to grow further — three is already close to where a
+  "system" starts reading as noise; treat `--dj-accent-2/3/4` as the deliberate
+  ceiling, not a floor.
+- Never set body text in `--dj-accent-2/3/4` — same rule as `--dj-accent-deep`:
+  fills, borders, dots, badges, not prose.
 
 ---
 
@@ -199,10 +200,9 @@ When building a Djaunt app, tool, extension, or page:
 5. Favicons: `brand/favicon/favicon.svg`, plus `maskable.svg` for PWA/app icons.
 6. Shallow radii, hairline borders, one glow, no emoji, stroke icons on a 24px grid.
 7. Need several simultaneous meaningful colors on one surface — categories,
-   lanes, a gauge — not just the theme's one mood accent? That's §2's
-   "Categorical / multi-accent surfaces": define your own project-scoped
-   tokens for it, don't invent a new elemental variant or ask for reserved
-   names here.
+   lanes, a gauge — not just the theme's one mood accent? Use
+   `--dj-accent-2/3/4` (§2 "Categorical / multi-accent surfaces") before
+   reaching for a project-scoped token or inventing a new elemental variant.
 8. If a decision isn't covered here, choose the more restrained option.
 
 `brand-guidelines.dc.html` in this repo renders the whole system visually,
