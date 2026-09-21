@@ -85,6 +85,37 @@ Body text at 4.5:1 minimum against its actual background; headline-scale type
 3:1. Every accent in the table clears 4.5:1 on its own theme background. Do not
 set text in `--dj-accent-deep` — those are fills and borders only.
 
+### Categorical / multi-accent surfaces
+"One theme per surface" governs mood — which single accent a view is dressed
+in. It says nothing about a different kind of color some products genuinely
+need: several *simultaneous*, *meaningful* colors on one screen that aren't
+about mood at all — a calendar's event categories, a status board's lanes, a
+gauge's deficient/caution/surplus zones. That's categorical color, not brand
+identity, and it doesn't get new elemental variants or reserved token names
+in `tokens.css` — every project's categories are its own domain, and inventing
+generic slots (`--dj-categorical-1`, etc.) for them would just become de facto
+brand tokens that recouple every consumer to values that were supposed to be
+project-specific.
+
+When a project needs this:
+- Define your own custom properties for it, named for what they mean
+  (`--myapp-lane-prep`, not `--dj-*`) — this lives in the project, not here.
+- Check the four semantic colors first (`--dj-success`, `--dj-warning`,
+  `--dj-danger`, `--dj-info`) — already theme-independent and free to reuse if
+  your categories are actually a status or severity, even if you'd never
+  phrase it that way in your own domain language (a 3-state gauge is a
+  danger/warning/info triad whether or not the product calls it that).
+- Keep whatever you do define visually distinct from `--dj-accent`/
+  `--dj-accent-hi`, so a category color is never mistaken for the theme's own
+  mood accent.
+- Still hold the system's discipline: the same contrast bar, the same
+  shallow/angular geometry, no gradients — and keep the category count small
+  enough to still read as a system instead of noise.
+- Prefer hues that sit near the existing ink/bone/gold family (warm-neutral
+  rotations) over saturated primaries, so categorical color still reads as
+  "the same brand, doing something else" rather than an unrelated palette
+  bolted on.
+
 ---
 
 ## 3. Typography
@@ -167,7 +198,12 @@ When building a Djaunt app, tool, extension, or page:
 4. Copy the logo files you need out of `brand/logo/` into the project. Prefer the `currentColor` variants.
 5. Favicons: `brand/favicon/favicon.svg`, plus `maskable.svg` for PWA/app icons.
 6. Shallow radii, hairline borders, one glow, no emoji, stroke icons on a 24px grid.
-7. If a decision isn't covered here, choose the more restrained option.
+7. Need several simultaneous meaningful colors on one surface — categories,
+   lanes, a gauge — not just the theme's one mood accent? That's §2's
+   "Categorical / multi-accent surfaces": define your own project-scoped
+   tokens for it, don't invent a new elemental variant or ask for reserved
+   names here.
+8. If a decision isn't covered here, choose the more restrained option.
 
 `brand-guidelines.dc.html` in this repo renders the whole system visually,
 including every theme — open it when a value needs to be seen rather than read.
