@@ -1,0 +1,56 @@
+/* Djaunt divided list — a stack of rows separated by hairline dividers,
+   consistent vertical rhythm, and clean top/bottom edges. Blended from
+   djaunt-bean-guide's .qa/.qa-item (plain heading + body rows, a Q&A list)
+   and cartoonist-drawing-curriculum's .findings/.findings li (rows with a
+   leading mono-numbered marker) — the same divider rhythm with and without
+   a leading slot, folded here into a base class plus a marker modifier.
+   Consumes role variables from tokens.css only. */
+
+.dj-divided-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dj-divided-item {
+  padding: var(--dj-space-4) 0;
+  border-bottom: var(--dj-border-width) solid var(--dj-border);
+}
+
+.dj-divided-item:last-child {
+  border-bottom: none;
+}
+
+.dj-divided-item h3 {
+  font-family: var(--dj-font-display);
+  font-size: var(--dj-text-base);
+  color: var(--dj-text);
+  margin: 0 0 4px;
+}
+
+.dj-divided-item p {
+  font-size: var(--dj-text-sm);
+  line-height: var(--dj-leading-body);
+  color: var(--dj-text-muted);
+  margin: 0;
+}
+
+/* Marker variant: a leading mono index/icon column beside the body. */
+.dj-divided-list-marked .dj-divided-item {
+  display: flex;
+  align-items: baseline;
+  gap: var(--dj-space-4);
+}
+
+.dj-divided-item-marker {
+  flex: none;
+  min-width: 2ch;
+  font-family: var(--dj-font-mono);
+  font-size: var(--dj-text-sm);
+  color: var(--dj-text-muted);
+}
+
+.dj-divided-item-body {
+  flex: 1 1 auto;
+  min-width: 0;
+}

@@ -27,6 +27,11 @@ you want consumers to be able to freeze on a version.
 | [`progress/`](progress/) | A thin fill-driven meter — "3 of 5 steps," a completion percentage. |
 | [`badge/`](badge/) | A small uppercase tag — a category, a stage, a status, colored by a custom property. |
 | [`section-nav/`](section-nav/) | A sticky jump-link bar with scroll-spy — for any page long enough to need one. |
+| [`hero/`](hero/) | A page-top masthead — kicker, display heading, lede, actions row, optional watermark mark. |
+| [`data-table/`](data-table/) | A scrollable table with a mono-uppercase header row and hairline dividers. |
+| [`empty-state/`](empty-state/) | The muted italic line shown in place of an empty list, table, or grid. |
+| [`filter-bar/`](filter-bar/) | A toolbar row: bordered search field, optional icon, optional result count. |
+| [`divided-list/`](divided-list/) | A stack of hairline-divided rows, plain or with a leading marker slot. |
 
 Each new component lands here after it's proven itself in at least one real
 site — extracted and blended, not designed in the abstract.

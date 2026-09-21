@@ -1,0 +1,70 @@
+/* Djaunt filter bar — a toolbar row above a list or table: a bordered
+   search input (with an optional leading icon slot) and an optional
+   result-count line. Blended from djaunt-bean-guide's .table-controls/
+   #filter and cartoonist-drawing-curriculum's .toolkit-toolbar/.search-box/
+   .toolkit-hit-count — same shape, cartoonist's just added an icon.
+   Wiring the input to an actual filter is left to the consumer (a few
+   lines of `input` listener over whatever list/table it's filtering); this
+   component only supplies the look. Consumes role variables from
+   tokens.css only. */
+
+.dj-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--dj-space-3);
+  margin-bottom: var(--dj-space-4);
+}
+
+.dj-filter-field {
+  display: flex;
+  align-items: center;
+  gap: var(--dj-space-2);
+  flex: 1 1 240px;
+  max-width: 360px;
+  background: var(--dj-surface);
+  border: var(--dj-border-width) solid var(--dj-border);
+  border-radius: var(--dj-radius-sm);
+  padding: 0 var(--dj-space-2) 0 var(--dj-space-3);
+  transition: border-color var(--dj-dur-fast) var(--dj-ease);
+}
+
+.dj-filter-field:focus-within {
+  border-color: var(--dj-accent);
+}
+
+.dj-filter-icon {
+  flex: none;
+  width: 14px;
+  height: 14px;
+  color: var(--dj-text-muted);
+}
+
+.dj-filter-input {
+  flex: 1 1 auto;
+  min-width: 0;
+  border: none;
+  background: none;
+  font-family: var(--dj-font-mono);
+  font-size: var(--dj-text-sm);
+  color: var(--dj-text);
+  padding: 7px var(--dj-space-2);
+}
+
+.dj-filter-input:focus {
+  outline: none;
+}
+
+.dj-filter-input::placeholder {
+  color: var(--dj-bone-500);
+}
+
+.dj-filter-count {
+  font-family: var(--dj-font-mono);
+  font-size: var(--dj-text-xs);
+  letter-spacing: var(--dj-tracking-label);
+  text-transform: uppercase;
+  color: var(--dj-text-muted);
+  white-space: nowrap;
+}

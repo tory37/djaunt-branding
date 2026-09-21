@@ -1,0 +1,20 @@
+/* Djaunt empty state — the muted italic line shown in place of a list,
+   table, or grid that has no items. Blended from djaunt-bean-guide's
+   .pots-empty, cartoonist-drawing-curriculum's .toolkit-empty (both
+   JS-toggled alongside a filtered list), and djaunt-browser-tools'
+   .empty-hint/.empty. The toggle itself stays with the consumer — this
+   component only standardizes what the message looks like once shown; use
+   the `hidden` attribute (not a bespoke class) to hide it.
+   Consumes role variables from tokens.css only. */
+
+.dj-empty-state {
+  padding: var(--dj-space-6) var(--dj-space-4);
+  font-style: italic;
+  font-size: var(--dj-text-sm);
+  color: var(--dj-text-muted);
+  text-align: center;
+}
+
+.dj-empty-state[hidden] {
+  display: none;
+}
