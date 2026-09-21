@@ -30,6 +30,7 @@
 <link rel="stylesheet" href="components/empty-state/empty-state.css">
 <link rel="stylesheet" href="components/filter-bar/filter-bar.css">
 <link rel="stylesheet" href="components/divided-list/divided-list.css">
+<link rel="stylesheet" href="components/skeleton/skeleton.css">
 <style>
   html { scroll-behavior: smooth; }
   html, body { margin: 0; padding: 0; background: #0D0C0A; }
@@ -380,163 +381,192 @@
       <p style="margin:0;max-width:66ch;font-size:16px;line-height:1.6;color:#8E887A;text-wrap:pretty">Built on <span style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#EDE6D6">tokens.css</span>, not React — plain CSS and a markup contract, extracted from real Djaunt sites once the same pattern showed up twice. See <a href="components/">components/</a> for the full list.</p>
     </div>
 
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:20px">
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#D4A017;padding-bottom:8px;border-bottom:1px solid #2A251C">Layout &amp; navigation</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:20px">
 
-      <div style="background:#14120F;border:1px solid #2A251C;border-radius:4px;padding:28px;display:flex;flex-direction:column;gap:20px">
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#D4A017">components/buttons</div>
-        <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center">
-          <button type="button" class="dj-button dj-button-primary">Primary</button>
-          <button type="button" class="dj-button dj-button-ghost">Ghost</button>
-          <button type="button" class="dj-button" id="btn-demo-neutral">Neutral</button>
-          <button type="button" class="dj-button-text-danger" id="btn-demo-remove">Remove</button>
+        <div style="background:#14120F;border:1px solid #2A251C;border-radius:4px;padding:28px;display:flex;flex-direction:column;gap:20px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#D4A017">components/hero</div>
+          <header class="dj-hero" style="padding:18px 0 2px;border:none;overflow:visible;">
+            <div class="dj-hero-kicker">A field guide</div>
+            <h3 class="dj-hero-title" style="font-size:22px;margin:0 0 10px;">Draw your own comics.</h3>
+            <p class="dj-hero-lede" style="font-size:14px;">Kicker, heading, lede, actions row — the masthead shape every Djaunt site starts with.</p>
+          </header>
+          <span style="font-size:14px;line-height:1.55;color:#8E887A">A page-top masthead — blended from djaunt-bean-guide, djaunt-dot-agents, djaunt-browser-tools, and cartoonist-drawing-curriculum.</span>
         </div>
-        <span style="font-size:14px;line-height:1.55;color:#8E887A">Hero and footer CTAs, plus plain in-app actions — ported from djaunt-dot-agents and djaunt-bean-guide.</span>
+
+        <div style="background:#14120F;border:1px solid #2A251C;border-radius:4px;padding:28px;display:flex;flex-direction:column;gap:20px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#D4A017">components/section-nav</div>
+          <nav aria-label="Example section navigation" style="display:flex;gap:16px;overflow-x:auto;padding:8px 0;border-bottom:1px solid #2A251C">
+            <span style="flex:none;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#D4A017;border-bottom:2px solid #D4A017;padding:6px 1px;white-space:nowrap">Mark</span>
+            <span style="flex:none;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#8E887A;padding:6px 1px;white-space:nowrap">Color</span>
+            <span style="flex:none;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#8E887A;padding:6px 1px;white-space:nowrap">Themes</span>
+            <span style="flex:none;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#8E887A;padding:6px 1px;white-space:nowrap">Type</span>
+          </nav>
+          <span style="font-size:14px;line-height:1.55;color:#8E887A">A sticky jump-link bar with scroll-spy — this very page uses the real thing at the top of it.</span>
+        </div>
+
       </div>
 
-      <div style="background:#14120F;border:1px solid #2A251C;border-radius:4px;padding:28px;display:flex;flex-direction:column;gap:20px">
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#D4A017">components/callout</div>
-        <div style="display:flex;flex-direction:column;gap:10px">
-          <div class="dj-callout dj-callout-danger" style="padding:12px 16px;margin:0;">
-            <span class="dj-callout-tag">Skip / deprioritize</span>
-            One rule that actually matters.
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#D4A017;padding-bottom:8px;border-bottom:1px solid #2A251C;margin-top:8px">Content &amp; data</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:20px">
+
+        <div style="background:#14120F;border:1px solid #2A251C;border-radius:4px;padding:28px;display:flex;flex-direction:column;gap:20px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#D4A017">components/data-table</div>
+          <div class="dj-table-scroll" style="border:1px solid #2A251C;border-radius:4px;">
+            <table class="dj-table">
+              <thead><tr><th>Bean</th><th>Simmer time</th></tr></thead>
+              <tbody>
+                <tr><td>Black beans</td><td>45&ndash;60 min</td></tr>
+                <tr><td>Pinto beans</td><td>60&ndash;90 min</td></tr>
+              </tbody>
+            </table>
           </div>
-          <div class="dj-callout dj-callout-success" style="padding:12px 16px;margin:0;">
-            <span class="dj-callout-tag">Why it matters</span>
-            Inline text right after the tag.
+          <span style="font-size:14px;line-height:1.55;color:#8E887A">A scrollable table with a mono-uppercase header row — blended from djaunt-bean-guide and djaunt-dot-agents.</span>
+        </div>
+
+        <div style="background:#14120F;border:1px solid #2A251C;border-radius:4px;padding:28px;display:flex;flex-direction:column;gap:20px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#D4A017">components/list-row</div>
+          <iframe src="components/list-row/demo.html" title="dj-list-row demo" style="width:100%;height:290px;border:1px solid #2A251C;border-radius:4px;background:#0D0C0A;"></iframe>
+          <span style="font-size:14px;line-height:1.55;color:#8E887A">Collapsible rows in a scrollable list — blended from three djaunt-browser-tools extensions that had each built it separately.</span>
+        </div>
+
+        <div style="background:#14120F;border:1px solid #2A251C;border-radius:4px;padding:28px;display:flex;flex-direction:column;gap:20px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#D4A017">components/divided-list</div>
+          <ul class="dj-divided-list dj-divided-list-marked" style="margin:0;">
+            <li class="dj-divided-item">
+              <span class="dj-divided-item-marker">01</span>
+              <div class="dj-divided-item-body">
+                <h3 style="margin:0 0 4px;font-size:14px;">Grind runs coarse</h3>
+                <p style="margin:0;font-size:13px;">Dial the grinder two steps finer.</p>
+              </div>
+            </li>
+            <li class="dj-divided-item">
+              <span class="dj-divided-item-marker">02</span>
+              <div class="dj-divided-item-body">
+                <h3 style="margin:0 0 4px;font-size:14px;">Water's too hard</h3>
+                <p style="margin:0;font-size:13px;">Switch to filtered water.</p>
+              </div>
+            </li>
+          </ul>
+          <span style="font-size:14px;line-height:1.55;color:#8E887A">A stack of hairline-divided rows, plain or with a leading marker slot — blended from djaunt-bean-guide and cartoonist-drawing-curriculum.</span>
+        </div>
+
+        <div style="background:#14120F;border:1px solid #2A251C;border-radius:4px;padding:28px;display:flex;flex-direction:column;gap:20px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#D4A017">components/badge</div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center">
+            <span class="dj-badge">draft</span>
+            <span class="dj-badge dj-badge-accent">current</span>
+            <span class="dj-badge dj-badge-success">complete</span>
+            <span class="dj-badge dj-badge-warning">low coverage</span>
+            <span class="dj-badge dj-badge-danger">critical</span>
+            <span class="dj-badge dj-badge-pill dj-badge-accent">in progress</span>
           </div>
+          <span style="font-size:14px;line-height:1.55;color:#8E887A">A small uppercase tag, colored by a custom property — blended from djaunt-dot-agents, cartoonist-drawing-curriculum, and djaunt-bean-guide.</span>
         </div>
-        <span style="font-size:14px;line-height:1.55;color:#8E887A">A bordered note, colored by semantic meaning — blended from djaunt-bean-guide and cartoonist-drawing-curriculum.</span>
+
       </div>
 
-      <div style="background:#14120F;border:1px solid #2A251C;border-radius:4px;padding:28px;display:flex;flex-direction:column;gap:20px">
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#D4A017">components/steps</div>
-        <div class="dj-steps">
-          <div class="dj-step" style="padding-bottom:18px;">
-            <h3 style="font-size:0.95rem;">Clone the repo</h3>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#D4A017;padding-bottom:8px;border-bottom:1px solid #2A251C;margin-top:8px">Controls &amp; input</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:20px">
+
+        <div style="background:#14120F;border:1px solid #2A251C;border-radius:4px;padding:28px;display:flex;flex-direction:column;gap:20px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#D4A017">components/buttons</div>
+          <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center">
+            <button type="button" class="dj-button dj-button-primary">Primary</button>
+            <button type="button" class="dj-button dj-button-ghost">Ghost</button>
+            <button type="button" class="dj-button" id="btn-demo-neutral">Neutral</button>
+            <button type="button" class="dj-button-text-danger" id="btn-demo-remove">Remove</button>
           </div>
-          <div class="dj-step" style="padding-bottom:0;">
-            <h3 style="font-size:0.95rem;">Run the sync</h3>
+          <span style="font-size:14px;line-height:1.55;color:#8E887A">Hero and footer CTAs, plus plain in-app actions — ported from djaunt-dot-agents and djaunt-bean-guide.</span>
+        </div>
+
+        <div style="background:#14120F;border:1px solid #2A251C;border-radius:4px;padding:28px;display:flex;flex-direction:column;gap:20px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#D4A017">components/filter-bar</div>
+          <div class="dj-filter-bar" style="margin:0;">
+            <label class="dj-filter-field">
+              <svg class="dj-filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3" stroke-linecap="round"/></svg>
+              <input class="dj-filter-input" type="text" placeholder="Filter&hellip;" readonly>
+            </label>
+            <span class="dj-filter-count">12 results</span>
           </div>
+          <span style="font-size:14px;line-height:1.55;color:#8E887A">A bordered search field with an optional icon and result count — blended from djaunt-bean-guide and cartoonist-drawing-curriculum.</span>
         </div>
-        <span style="font-size:14px;line-height:1.55;color:#8E887A">A connected, auto-numbered list — the number is CSS-generated, never hardcoded in markup.</span>
-      </div>
 
-      <div style="background:#14120F;border:1px solid #2A251C;border-radius:4px;padding:28px;display:flex;flex-direction:column;gap:20px">
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#D4A017">components/popup</div>
-        <iframe src="components/popup/demo.html" title="dj-popup demo" style="width:100%;height:290px;border:1px solid #2A251C;border-radius:4px;background:#0D0C0A;"></iframe>
-        <span style="font-size:14px;line-height:1.55;color:#8E887A">Header, switch, segmented control, button, footer — the set that shipped seven djaunt-browser-tools extensions.</span>
-      </div>
-
-      <div style="background:#14120F;border:1px solid #2A251C;border-radius:4px;padding:28px;display:flex;flex-direction:column;gap:20px">
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#D4A017">components/list-row</div>
-        <iframe src="components/list-row/demo.html" title="dj-list-row demo" style="width:100%;height:290px;border:1px solid #2A251C;border-radius:4px;background:#0D0C0A;"></iframe>
-        <span style="font-size:14px;line-height:1.55;color:#8E887A">Collapsible rows in a scrollable list — blended from three djaunt-browser-tools extensions that had each built it separately.</span>
-      </div>
-
-      <div style="background:#14120F;border:1px solid #2A251C;border-radius:4px;padding:28px;display:flex;flex-direction:column;gap:20px">
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#D4A017">components/progress</div>
-        <div style="display:flex;flex-direction:column;gap:14px">
-          <div>
-            <div class="dj-bar-label">3 of 5 steps complete</div>
-            <div class="dj-bar-track"><div class="dj-bar-fill" style="width:60%"></div></div>
-          </div>
-          <div>
-            <div class="dj-bar-label">All checks passed</div>
-            <div class="dj-bar-track"><div class="dj-bar-fill dj-bar-fill-success" style="width:100%"></div></div>
-          </div>
+        <div style="background:#14120F;border:1px solid #2A251C;border-radius:4px;padding:28px;display:flex;flex-direction:column;gap:20px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#D4A017">components/popup</div>
+          <iframe src="components/popup/demo.html" title="dj-popup demo" style="width:100%;height:290px;border:1px solid #2A251C;border-radius:4px;background:#0D0C0A;"></iframe>
+          <span style="font-size:14px;line-height:1.55;color:#8E887A">Header, switch, segmented control, button, footer — the set that shipped seven djaunt-browser-tools extensions.</span>
         </div>
-        <span style="font-size:14px;line-height:1.55;color:#8E887A">A fill-driven meter — blended from djaunt-bean-guide's pot progress and cartoonist-drawing-curriculum's overall bar.</span>
+
       </div>
 
-      <div style="background:#14120F;border:1px solid #2A251C;border-radius:4px;padding:28px;display:flex;flex-direction:column;gap:20px">
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#D4A017">components/badge</div>
-        <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center">
-          <span class="dj-badge">draft</span>
-          <span class="dj-badge dj-badge-accent">current</span>
-          <span class="dj-badge dj-badge-success">complete</span>
-          <span class="dj-badge dj-badge-warning">low coverage</span>
-          <span class="dj-badge dj-badge-danger">critical</span>
-          <span class="dj-badge dj-badge-pill dj-badge-accent">in progress</span>
-        </div>
-        <span style="font-size:14px;line-height:1.55;color:#8E887A">A small uppercase tag, colored by a custom property — blended from djaunt-dot-agents, cartoonist-drawing-curriculum, and djaunt-bean-guide.</span>
-      </div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#D4A017;padding-bottom:8px;border-bottom:1px solid #2A251C;margin-top:8px">Feedback &amp; state</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:20px">
 
-      <div style="background:#14120F;border:1px solid #2A251C;border-radius:4px;padding:28px;display:flex;flex-direction:column;gap:20px">
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#D4A017">components/section-nav</div>
-        <nav aria-label="Example section navigation" style="display:flex;gap:16px;overflow-x:auto;padding:8px 0;border-bottom:1px solid #2A251C">
-          <span style="flex:none;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#D4A017;border-bottom:2px solid #D4A017;padding:6px 1px;white-space:nowrap">Mark</span>
-          <span style="flex:none;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#8E887A;padding:6px 1px;white-space:nowrap">Color</span>
-          <span style="flex:none;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#8E887A;padding:6px 1px;white-space:nowrap">Themes</span>
-          <span style="flex:none;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#8E887A;padding:6px 1px;white-space:nowrap">Type</span>
-        </nav>
-        <span style="font-size:14px;line-height:1.55;color:#8E887A">A sticky jump-link bar with scroll-spy — this very page uses the real thing at the top of it.</span>
-      </div>
-
-      <div style="background:#14120F;border:1px solid #2A251C;border-radius:4px;padding:28px;display:flex;flex-direction:column;gap:20px">
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#D4A017">components/hero</div>
-        <header class="dj-hero" style="padding:18px 0 2px;border:none;overflow:visible;">
-          <div class="dj-hero-kicker">A field guide</div>
-          <h3 class="dj-hero-title" style="font-size:22px;margin:0 0 10px;">Draw your own comics.</h3>
-          <p class="dj-hero-lede" style="font-size:14px;">Kicker, heading, lede, actions row — the masthead shape every Djaunt site starts with.</p>
-        </header>
-        <span style="font-size:14px;line-height:1.55;color:#8E887A">A page-top masthead — blended from djaunt-bean-guide, djaunt-dot-agents, djaunt-browser-tools, and cartoonist-drawing-curriculum.</span>
-      </div>
-
-      <div style="background:#14120F;border:1px solid #2A251C;border-radius:4px;padding:28px;display:flex;flex-direction:column;gap:20px">
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#D4A017">components/data-table</div>
-        <div class="dj-table-scroll" style="border:1px solid #2A251C;border-radius:4px;">
-          <table class="dj-table">
-            <thead><tr><th>Bean</th><th>Simmer time</th></tr></thead>
-            <tbody>
-              <tr><td>Black beans</td><td>45&ndash;60 min</td></tr>
-              <tr><td>Pinto beans</td><td>60&ndash;90 min</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <span style="font-size:14px;line-height:1.55;color:#8E887A">A scrollable table with a mono-uppercase header row — blended from djaunt-bean-guide and djaunt-dot-agents.</span>
-      </div>
-
-      <div style="background:#14120F;border:1px solid #2A251C;border-radius:4px;padding:28px;display:flex;flex-direction:column;gap:20px">
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#D4A017">components/empty-state</div>
-        <div style="border:1px solid #2A251C;border-radius:4px;">
-          <p class="dj-empty-state" style="margin:0;">No pots yet &mdash; add one above to get started.</p>
-        </div>
-        <span style="font-size:14px;line-height:1.55;color:#8E887A">The muted italic line shown in place of an empty list, table, or grid.</span>
-      </div>
-
-      <div style="background:#14120F;border:1px solid #2A251C;border-radius:4px;padding:28px;display:flex;flex-direction:column;gap:20px">
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#D4A017">components/filter-bar</div>
-        <div class="dj-filter-bar" style="margin:0;">
-          <label class="dj-filter-field">
-            <svg class="dj-filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3" stroke-linecap="round"/></svg>
-            <input class="dj-filter-input" type="text" placeholder="Filter&hellip;" readonly>
-          </label>
-          <span class="dj-filter-count">12 results</span>
-        </div>
-        <span style="font-size:14px;line-height:1.55;color:#8E887A">A bordered search field with an optional icon and result count — blended from djaunt-bean-guide and cartoonist-drawing-curriculum.</span>
-      </div>
-
-      <div style="background:#14120F;border:1px solid #2A251C;border-radius:4px;padding:28px;display:flex;flex-direction:column;gap:20px">
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#D4A017">components/divided-list</div>
-        <ul class="dj-divided-list dj-divided-list-marked" style="margin:0;">
-          <li class="dj-divided-item">
-            <span class="dj-divided-item-marker">01</span>
-            <div class="dj-divided-item-body">
-              <h3 style="margin:0 0 4px;font-size:14px;">Grind runs coarse</h3>
-              <p style="margin:0;font-size:13px;">Dial the grinder two steps finer.</p>
+        <div style="background:#14120F;border:1px solid #2A251C;border-radius:4px;padding:28px;display:flex;flex-direction:column;gap:20px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#D4A017">components/callout</div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div class="dj-callout dj-callout-danger" style="padding:12px 16px;margin:0;">
+              <span class="dj-callout-tag">Skip / deprioritize</span>
+              One rule that actually matters.
             </div>
-          </li>
-          <li class="dj-divided-item">
-            <span class="dj-divided-item-marker">02</span>
-            <div class="dj-divided-item-body">
-              <h3 style="margin:0 0 4px;font-size:14px;">Water's too hard</h3>
-              <p style="margin:0;font-size:13px;">Switch to filtered water.</p>
+            <div class="dj-callout dj-callout-success" style="padding:12px 16px;margin:0;">
+              <span class="dj-callout-tag">Why it matters</span>
+              Inline text right after the tag.
             </div>
-          </li>
-        </ul>
-        <span style="font-size:14px;line-height:1.55;color:#8E887A">A stack of hairline-divided rows, plain or with a leading marker slot — blended from djaunt-bean-guide and cartoonist-drawing-curriculum.</span>
-      </div>
+          </div>
+          <span style="font-size:14px;line-height:1.55;color:#8E887A">A bordered note, colored by semantic meaning — blended from djaunt-bean-guide and cartoonist-drawing-curriculum.</span>
+        </div>
 
+        <div style="background:#14120F;border:1px solid #2A251C;border-radius:4px;padding:28px;display:flex;flex-direction:column;gap:20px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#D4A017">components/progress</div>
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <div>
+              <div class="dj-bar-label">3 of 5 steps complete</div>
+              <div class="dj-bar-track"><div class="dj-bar-fill" style="width:60%"></div></div>
+            </div>
+            <div>
+              <div class="dj-bar-label">All checks passed</div>
+              <div class="dj-bar-track"><div class="dj-bar-fill dj-bar-fill-success" style="width:100%"></div></div>
+            </div>
+          </div>
+          <span style="font-size:14px;line-height:1.55;color:#8E887A">A fill-driven meter — blended from djaunt-bean-guide's pot progress and cartoonist-drawing-curriculum's overall bar.</span>
+        </div>
+
+        <div style="background:#14120F;border:1px solid #2A251C;border-radius:4px;padding:28px;display:flex;flex-direction:column;gap:20px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#D4A017">components/steps</div>
+          <div class="dj-steps">
+            <div class="dj-step" style="padding-bottom:18px;">
+              <h3 style="font-size:0.95rem;">Clone the repo</h3>
+            </div>
+            <div class="dj-step" style="padding-bottom:0;">
+              <h3 style="font-size:0.95rem;">Run the sync</h3>
+            </div>
+          </div>
+          <span style="font-size:14px;line-height:1.55;color:#8E887A">A connected, auto-numbered list — the number is CSS-generated, never hardcoded in markup.</span>
+        </div>
+
+        <div style="background:#14120F;border:1px solid #2A251C;border-radius:4px;padding:28px;display:flex;flex-direction:column;gap:20px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#D4A017">components/empty-state</div>
+          <div style="border:1px solid #2A251C;border-radius:4px;">
+            <p class="dj-empty-state" style="margin:0;">No pots yet &mdash; add one above to get started.</p>
+          </div>
+          <span style="font-size:14px;line-height:1.55;color:#8E887A">The muted italic line shown in place of an empty list, table, or grid.</span>
+        </div>
+
+        <div style="background:#14120F;border:1px solid #2A251C;border-radius:4px;padding:28px;display:flex;flex-direction:column;gap:20px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#D4A017">components/skeleton</div>
+          <div class="dj-skeleton-card" style="padding:0;border:none;background:none;">
+            <div class="dj-skeleton dj-skeleton-thumb"></div>
+            <div class="dj-skeleton dj-skeleton-title"></div>
+            <div class="dj-skeleton dj-skeleton-text"></div>
+            <div class="dj-skeleton dj-skeleton-text"></div>
+          </div>
+          <span style="font-size:14px;line-height:1.55;color:#8E887A">Shimmering bone placeholders for content still loading — built ahead of need, for mealeo's restyle and whatever's next.</span>
+        </div>
+
+      </div>
     </div>
 
     <div style="background:#0A0908;border:1px solid #2A251C;border-radius:4px;padding:clamp(20px,3vw,28px);font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:1.9;color:#C8C0AE;overflow-x:auto;white-space:pre">&lt;link rel="stylesheet" href="brand/tokens/tokens.css"&gt;
