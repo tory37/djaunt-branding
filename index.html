@@ -625,15 +625,44 @@ class Component extends DCLogic {
 }
 </script>
 <script>
-  const removeBtn = document.getElementById('btn-demo-remove');
-  const neutralBtn = document.getElementById('btn-demo-neutral');
-  if (removeBtn && neutralBtn) {
-    removeBtn.addEventListener('click', () => {
-      const removed = neutralBtn.disabled;
-      neutralBtn.disabled = !removed;
-      removeBtn.textContent = removed ? 'Remove' : 'Restore';
+(() => {
+  // support.js hides this page's real markup (x-dc{display:none}) until
+  // React hydrates from a CDN, then swaps it for a fresh #dc-root tree
+  // (see support.js's hideRawTemplate/boot). Anything here that touches
+  // *rendered* content — restoring the URL's scroll target, wiring demo
+  // buttons — has to wait for that swap. Querying by id before it happens
+  // finds the soon-to-be-discarded raw nodes instead: a click handler
+  // attached to one never fires, and a browser's native scroll-to-#hash
+  // on load no-ops because the target is still display:none at that point.
+  function afterHydration(run) {
+    if (document.getElementById('dc-root')) { run(); return; }
+    const observer = new MutationObserver(() => {
+      if (document.getElementById('dc-root')) {
+        observer.disconnect();
+        run();
+      }
     });
+    observer.observe(document.documentElement, { childList: true, subtree: true });
+    setTimeout(() => observer.disconnect(), 8000);
   }
+
+  afterHydration(() => {
+    if (location.hash) {
+      const target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+      if (target) target.scrollIntoView();
+    }
+
+    const removeBtn = document.getElementById('btn-demo-remove');
+    const neutralBtn = document.getElementById('btn-demo-neutral');
+    if (removeBtn && neutralBtn) {
+      removeBtn.addEventListener('click', () => {
+        const removed = neutralBtn.disabled;
+        neutralBtn.disabled = !removed;
+        removeBtn.textContent = removed ? 'Remove' : 'Restore';
+      });
+    }
+  });
+})();
 </script>
 </body>
 </html>
