@@ -1,0 +1,56 @@
+/* Djaunt spinner — an indeterminate loading ring: a button mid-submit, an
+   inline "working" state, anywhere components/progress's determinate fill
+   ("3 of 5 steps") doesn't apply because there's no known length yet.
+   Blended from mealeo's Spinner (used inside its SubmitButton). Color
+   follows currentColor, so set color on a parent or an inline text class.
+   Consumes role variables from tokens.css only. */
+
+.dj-spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  animation: dj-spinner-spin 0.85s linear infinite;
+}
+
+.dj-spinner-sm {
+  width: 12px;
+  height: 12px;
+}
+
+.dj-spinner-lg {
+  width: 24px;
+  height: 24px;
+}
+
+.dj-spinner-track {
+  opacity: 0.25;
+}
+
+.dj-spinner-arc {
+  opacity: 0.9;
+}
+
+@keyframes dj-spinner-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* A spinning ring is a poor fit for prefers-reduced-motion, but going fully
+   static loses the "still working" signal -- a gentle opacity pulse keeps
+   that signal without the rotation, same tradeoff components/skeleton makes
+   for its shimmer. */
+@media (prefers-reduced-motion: reduce) {
+  .dj-spinner {
+    animation: dj-spinner-pulse 1.6s ease-in-out infinite;
+  }
+
+  @keyframes dj-spinner-pulse {
+    0%, 100% {
+      opacity: 0.35;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+}

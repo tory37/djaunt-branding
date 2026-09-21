@@ -1,0 +1,15 @@
+/* Djaunt status line — a small live-region message for a background action
+   in progress (an autosave, a sync) too lightweight for a full
+   components/callout. Blended from mealeo's autosave indicator. Consumes
+   role variables from tokens.css only. */
+
+.dj-status-line {
+  font-family: var(--dj-font-body);
+  font-size: var(--dj-text-xs);
+  font-weight: 500;
+  color: var(--dj-text-muted);
+}
+
+.dj-status-line-danger {
+  color: var(--dj-danger);
+}

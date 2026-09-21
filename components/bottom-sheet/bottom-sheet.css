@@ -1,0 +1,124 @@
+/* Djaunt bottom sheet — a mobile-style slide-up panel: filter & sort, an
+   add/edit form, a kebab action list. Distinct from components/popup (a
+   small fixed panel UI, not a slide-from-bottom sheet) and
+   components/dropdown-menu (a desktop-shaped anchored dropdown). Blended
+   from mealeo's Pantry redesign, which used one generic sheet for all
+   three cases above -- height and a drag handle were the only per-use
+   variance. Consumes role variables from tokens.css only. */
+
+.dj-sheet-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.dj-sheet-overlay[hidden] {
+  display: none;
+}
+
+.dj-sheet-scrim {
+  position: absolute;
+  inset: 0;
+  background: color-mix(in srgb, var(--dj-ink-900) 65%, transparent);
+}
+
+.dj-sheet {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 560px;
+  max-height: 80vh;
+  background: var(--dj-surface);
+  border: var(--dj-border-width) solid var(--dj-border);
+  border-bottom: none;
+  border-radius: var(--dj-radius-lg) var(--dj-radius-lg) 0 0;
+  box-shadow: var(--dj-shadow-lg);
+  animation: dj-sheet-slide-up var(--dj-dur-slow) var(--dj-ease);
+}
+
+.dj-sheet[data-height='full'] {
+  height: 100dvh;
+  max-height: none;
+}
+
+.dj-sheet[data-height='80vh'] {
+  height: 80vh;
+}
+
+.dj-sheet[data-height='auto'] {
+  max-height: 80vh;
+}
+
+.dj-sheet-handle {
+  flex: none;
+  width: 36px;
+  height: 4px;
+  margin: 10px auto 4px;
+  background: var(--dj-border);
+  border-radius: var(--dj-radius-full);
+}
+
+.dj-sheet-body {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+@keyframes dj-sheet-slide-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dj-sheet {
+    animation: none;
+  }
+}
+
+/* ---- action-sheet recipe: an auto-height sheet whose body is a list of
+   tap actions (Edit/Delete on a row), instead of a form or scroll list ---- */
+
+.dj-sheet-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dj-space-1);
+  padding: var(--dj-space-1) var(--dj-space-3) var(--dj-space-4);
+}
+
+.dj-sheet-action {
+  padding: var(--dj-space-3) var(--dj-space-4);
+  font-family: var(--dj-font-body);
+  font-size: var(--dj-text-sm);
+  font-weight: 500;
+  color: var(--dj-text);
+  text-align: left;
+  background: none;
+  border: none;
+  border-radius: var(--dj-radius-sm);
+  cursor: pointer;
+  transition: background var(--dj-dur-fast) var(--dj-ease);
+}
+
+.dj-sheet-action:hover:not(:disabled) {
+  background: var(--dj-surface-raised);
+}
+
+.dj-sheet-action:disabled {
+  color: var(--dj-text-muted);
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.dj-sheet-action-danger {
+  color: var(--dj-danger);
+}

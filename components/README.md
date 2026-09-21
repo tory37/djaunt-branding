@@ -23,6 +23,7 @@ you want consumers to be able to freeze on a version.
 |---|---|
 | [`hero/`](hero/) | A page-top masthead — kicker, display heading, lede, actions row, optional watermark mark. |
 | [`section-nav/`](section-nav/) | A sticky jump-link bar with scroll-spy — for any page long enough to need one. |
+| [`tab-bar/`](tab-bar/) | A mobile bottom navigation bar — the fixed set of top-level app sections. |
 
 ### Content & data
 
@@ -40,6 +41,10 @@ you want consumers to be able to freeze on a version.
 | [`buttons/`](buttons/) | Primary/ghost/neutral buttons for a page — hero, footer, in-app actions. |
 | [`filter-bar/`](filter-bar/) | A toolbar row: bordered search field, optional icon, optional result count. |
 | [`popup/`](popup/) | Header, buttons, switch, segmented control, pill, inputs, footer — a small panel UI. |
+| [`dropdown-menu/`](dropdown-menu/) | A small panel anchored to a trigger button — an avatar, a kebab, a "more" link. |
+| [`bottom-sheet/`](bottom-sheet/) | A mobile slide-up panel — filter & sort, an add/edit form, a kebab action list. |
+| [`checkbox/`](checkbox/) | A native checkbox, plus a larger custom "tile" checkbox for touch-heavy contexts. |
+| [`typeahead/`](typeahead/) | A chip multi/single-select combobox with keyboard nav and an optional create-new option. |
 
 ### Feedback & state
 
@@ -50,8 +55,13 @@ you want consumers to be able to freeze on a version.
 | [`steps/`](steps/) | Connected, auto-numbered vertical steps — "Get started," a method. |
 | [`empty-state/`](empty-state/) | The muted italic line shown in place of an empty list, table, or grid. |
 | [`skeleton/`](skeleton/) | Shimmering bone placeholders for content that hasn't loaded yet — text, avatar, thumbnail, card. |
+| [`spinner/`](spinner/) | An indeterminate loading ring — a button mid-submit, an inline "working" state. |
+| [`status-line/`](status-line/) | A small live-region message for a background action in progress — an autosave, a sync. |
 
 Each new component lands here after it's proven itself in at least one real
 site — extracted and blended, not designed in the abstract. (`skeleton/` is
 the one exception so far — built ahead of need for an upcoming restyle; see
-its own README.)
+its own README.) `tab-bar/`, `dropdown-menu/`, `bottom-sheet/`, `checkbox/`,
+`typeahead/`, `spinner/`, and `status-line/` are pulled from mealeo — the
+first site to prove them out; a second site's variant, when one shows up,
+folds back in here same as everything above.

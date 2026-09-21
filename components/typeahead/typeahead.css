@@ -1,0 +1,156 @@
+/* Djaunt typeahead — a chip multi/single-select combobox with keyboard nav
+   and an optional "create new" option: tags, categories, an ingredient
+   picker. Ported from mealeo's Typeahead (Cookbook/Pantry tag & category
+   fields). Unlike most of this kit, the filtering/keyboard/chip logic *is*
+   the value being shared, so this one requires typeahead.js (DjTypeahead) —
+   it isn't CSS-only. Consumes role variables from tokens.css only. */
+
+.dj-typeahead {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dj-space-2);
+}
+
+.dj-typeahead-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--dj-space-1);
+}
+
+.dj-typeahead-chips[hidden] {
+  display: none;
+}
+
+.dj-typeahead-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--dj-space-1);
+  padding: 4px var(--dj-space-2);
+  font-family: var(--dj-font-body);
+  font-size: var(--dj-text-sm);
+  color: var(--dj-text);
+  background: color-mix(in srgb, var(--dj-accent) 15%, transparent);
+  border-radius: var(--dj-radius-full);
+}
+
+/* Category is the broader, structured concept (mirrors mealeo's
+   tag/category distinction) -- a solid, elevated chip instead of a tinted
+   pill, so the two read as different kinds of things, not the same chip in
+   two colors. */
+.dj-typeahead-chip-category {
+  font-family: var(--dj-font-mono);
+  font-size: var(--dj-text-xs);
+  font-weight: 600;
+  letter-spacing: var(--dj-tracking-label);
+  text-transform: uppercase;
+  color: var(--dj-on-accent);
+  background: var(--dj-accent);
+}
+
+.dj-typeahead-chip-remove {
+  line-height: 1;
+  color: inherit;
+  opacity: 0.6;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.dj-typeahead-chip-remove:hover {
+  opacity: 1;
+}
+
+.dj-typeahead-field {
+  position: relative;
+}
+
+.dj-typeahead-field[hidden] {
+  display: none;
+}
+
+.dj-typeahead-input {
+  width: 100%;
+  padding: 7px var(--dj-space-3);
+  font-family: var(--dj-font-body);
+  font-size: var(--dj-text-sm);
+  color: var(--dj-text);
+  background: var(--dj-surface);
+  border: var(--dj-border-width) solid var(--dj-border);
+  border-radius: var(--dj-radius-sm);
+  transition: border-color var(--dj-dur-fast) var(--dj-ease);
+}
+
+.dj-typeahead-input:focus {
+  outline: none;
+  border-color: var(--dj-accent);
+}
+
+.dj-typeahead-input:disabled {
+  opacity: 0.5;
+}
+
+.dj-typeahead-listbox {
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  left: 0;
+  z-index: 10;
+  max-height: 240px;
+  margin: 0;
+  padding: var(--dj-space-1) 0;
+  overflow-y: auto;
+  list-style: none;
+  background: var(--dj-surface);
+  border: var(--dj-border-width) solid var(--dj-border);
+  border-radius: var(--dj-radius-sm);
+  box-shadow: var(--dj-shadow-md);
+}
+
+.dj-typeahead-listbox[hidden] {
+  display: none;
+}
+
+.dj-typeahead-option {
+  display: flex;
+  align-items: center;
+  gap: var(--dj-space-2);
+  width: 100%;
+  padding: 6px var(--dj-space-3);
+  font-family: var(--dj-font-body);
+  font-size: var(--dj-text-sm);
+  color: var(--dj-text);
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.dj-typeahead-option-active {
+  background: var(--dj-surface-raised);
+}
+
+.dj-typeahead-option-label {
+  flex: 1 1 auto;
+}
+
+.dj-typeahead-option-kind {
+  flex: none;
+  padding: 1px 6px;
+  font-family: var(--dj-font-mono);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: var(--dj-tracking-label);
+  text-transform: uppercase;
+  color: var(--dj-accent);
+  background: color-mix(in srgb, var(--dj-accent) 12%, transparent);
+  border-radius: var(--dj-radius-full);
+}
+
+.dj-typeahead-option-create {
+  color: var(--dj-accent);
+}
+
+.dj-typeahead-option-create:disabled {
+  color: var(--dj-text-muted);
+  cursor: not-allowed;
+}

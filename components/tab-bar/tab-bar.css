@@ -1,0 +1,81 @@
+/* Djaunt tab bar — a mobile bottom navigation bar: the small, fixed set of
+   top-level sections an app always shows (a hamburger-drawer replacement on
+   narrow viewports). Distinct from components/section-nav (a sticky
+   jump-link bar for one long page's own sections, not top-level app nav).
+   Blended from mealeo's AppShell. Consumes role variables from tokens.css
+   only. */
+
+.dj-tab-bar {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 64px;
+  background: var(--dj-surface);
+  border-top: var(--dj-border-width) solid var(--dj-border);
+}
+
+.dj-tab-bar-item {
+  --dj-tab-accent: var(--dj-accent);
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--dj-space-1);
+  padding: var(--dj-space-1) 0;
+  color: var(--dj-text-muted);
+  text-decoration: none;
+  transition: color var(--dj-dur-base) var(--dj-ease);
+}
+
+/* Categorical accent per tab (tokens.css --dj-accent-2/3/4) -- opt in per
+   item when a bar has more sections than one accent can tell apart. See
+   BRANDING.md §2 "Categorical / multi-accent surfaces". */
+.dj-tab-bar-item-accent-2 {
+  --dj-tab-accent: var(--dj-accent-2);
+}
+
+.dj-tab-bar-item-accent-3 {
+  --dj-tab-accent: var(--dj-accent-3);
+}
+
+.dj-tab-bar-item-accent-4 {
+  --dj-tab-accent: var(--dj-accent-4);
+}
+
+.dj-tab-bar-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--dj-radius-sm);
+  transition: background var(--dj-dur-base) var(--dj-ease);
+}
+
+.dj-tab-bar-label {
+  font-family: var(--dj-font-mono);
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: var(--dj-tracking-label);
+  text-transform: uppercase;
+}
+
+.dj-tab-bar-item-active {
+  color: var(--dj-tab-accent);
+}
+
+.dj-tab-bar-item-active .dj-tab-bar-icon {
+  background: color-mix(in srgb, var(--dj-tab-accent) 14%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dj-tab-bar-item,
+  .dj-tab-bar-icon {
+    transition: none;
+  }
+}

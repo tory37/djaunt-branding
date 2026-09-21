@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" data-dj-theme="hoard">
+<head>
+<meta charset="UTF-8">
+<title>dj-dropdown-menu demo</title>
+<link rel="stylesheet" href="../../brand/tokens/tokens.css">
+<link rel="stylesheet" href="../buttons/buttons.css">
+<link rel="stylesheet" href="dropdown-menu.css">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  html, body { width: 100%; height: 100%; }
+  body {
+    margin: 0;
+    padding: 60px 24px;
+    box-sizing: border-box;
+    background: var(--dj-bg);
+    color: var(--dj-text);
+    font-family: var(--dj-font-body);
+    display: flex;
+    justify-content: flex-end;
+  }
+  * { box-sizing: border-box; }
+</style>
+</head>
+<body>
+  <div class="dj-dropdown" id="dropdown">
+    <button type="button" class="dj-button" id="trigger" aria-haspopup="true" aria-expanded="false">Account ▾</button>
+    <div class="dj-dropdown-menu" id="menu" role="menu" hidden>
+      <a class="dj-dropdown-item" role="menuitem" href="#">Profile</a>
+      <a class="dj-dropdown-item" role="menuitem" href="#">Settings</a>
+      <hr class="dj-dropdown-divider">
+      <button class="dj-dropdown-item dj-dropdown-item-danger" role="menuitem" type="button">Sign out</button>
+    </div>
+  </div>
+
+<script>
+  const dropdown = document.getElementById('dropdown');
+  const trigger = document.getElementById('trigger');
+  const menu = document.getElementById('menu');
+
+  function setOpen(open) {
+    menu.hidden = !open;
+    trigger.setAttribute('aria-expanded', String(open));
+  }
+
+  trigger.addEventListener('click', () => setOpen(menu.hidden));
+  document.addEventListener('click', (e) => {
+    if (!dropdown.contains(e.target)) setOpen(false);
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') setOpen(false);
+  });
+
+  setOpen(true);
+</script>
+</body>
+</html>

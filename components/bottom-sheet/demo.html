@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" data-dj-theme="hoard">
+<head>
+<meta charset="UTF-8">
+<title>dj-bottom-sheet demo</title>
+<link rel="stylesheet" href="../../brand/tokens/tokens.css">
+<link rel="stylesheet" href="../buttons/buttons.css">
+<link rel="stylesheet" href="bottom-sheet.css">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  html, body { width: 100%; height: 100%; }
+  body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: var(--dj-bg);
+    color: var(--dj-text);
+    font-family: var(--dj-font-body);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  * { box-sizing: border-box; }
+</style>
+</head>
+<body>
+  <button type="button" class="dj-button dj-button-primary" id="open-sheet">Filter &amp; sort</button>
+
+  <div class="dj-sheet-overlay" id="overlay" hidden>
+    <div class="dj-sheet-scrim" id="scrim"></div>
+    <div class="dj-sheet" data-height="auto" role="dialog" aria-modal="true" aria-label="Filter &amp; sort">
+      <div class="dj-sheet-handle"></div>
+      <div class="dj-sheet-actions">
+        <button type="button" class="dj-sheet-action" data-close>Sort: A–Z</button>
+        <button type="button" class="dj-sheet-action" data-close>Sort: Recently added</button>
+        <button type="button" class="dj-sheet-action" data-close>Filter: In stock only</button>
+        <button type="button" class="dj-sheet-action dj-sheet-action-danger" data-close>Clear filters</button>
+      </div>
+    </div>
+  </div>
+
+<script>
+  const overlay = document.getElementById('overlay');
+
+  function open() { overlay.hidden = false; }
+  function close() { overlay.hidden = true; }
+
+  document.getElementById('open-sheet').addEventListener('click', open);
+  document.getElementById('scrim').addEventListener('click', close);
+  overlay.querySelectorAll('[data-close]').forEach((el) => el.addEventListener('click', close));
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !overlay.hidden) close();
+  });
+</script>
+</body>
+</html>

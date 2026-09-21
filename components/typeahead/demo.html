@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" data-dj-theme="hoard">
+<head>
+<meta charset="UTF-8">
+<title>dj-typeahead demo</title>
+<link rel="stylesheet" href="../../brand/tokens/tokens.css">
+<link rel="stylesheet" href="typeahead.css">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  html, body { width: 100%; }
+  body {
+    margin: 0;
+    padding: 24px;
+    box-sizing: border-box;
+    background: var(--dj-bg);
+    color: var(--dj-text);
+    font-family: var(--dj-font-body);
+  }
+  * { box-sizing: border-box; }
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-family: var(--dj-font-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--dj-text-muted);
+  }
+</style>
+</head>
+<body>
+  <label for="tag-picker">Tags</label>
+  <div class="dj-typeahead" id="tag-picker">
+    <div class="dj-typeahead-chips" hidden></div>
+    <div class="dj-typeahead-field">
+      <input type="text" class="dj-typeahead-input" placeholder="Add a tag…" autocomplete="off">
+      <ul class="dj-typeahead-listbox" role="listbox" hidden></ul>
+    </div>
+  </div>
+
+<script src="typeahead.js"></script>
+<script>
+  const OPTIONS = [
+    { id: '1', name: 'weeknight' },
+    { id: '2', name: 'slow-cooker' },
+    { id: '3', name: 'one-pot' },
+    { id: '4', name: 'freezer-friendly' },
+    { id: '5', name: 'kid-approved' },
+  ];
+
+  new DjTypeahead(document.getElementById('tag-picker'), {
+    options: OPTIONS,
+    mode: 'multi',
+    selected: [OPTIONS[0]],
+    variant: 'tag',
+    placeholder: 'Add a tag…',
+    onChange() {},
+    async onCreate(name) {
+      return { id: `new-${name}`, name };
+    },
+  });
+</script>
+</body>
+</html>

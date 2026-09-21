@@ -1,0 +1,69 @@
+/* Djaunt dropdown menu — a small panel anchored to a trigger button (an
+   avatar, a kebab, a "more" link): profile/settings/sign-out, a row's
+   quick actions. Distinct from components/popup (a whole small panel UI)
+   and components/bottom-sheet (a mobile slide-up sheet) -- this is a
+   desktop-shaped anchored dropdown. Blended from mealeo's account menu.
+   Consumes role variables from tokens.css only. */
+
+.dj-dropdown {
+  position: relative;
+  display: inline-flex;
+}
+
+.dj-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  padding: var(--dj-space-1) 0;
+  background: var(--dj-surface);
+  border: var(--dj-border-width) solid var(--dj-border);
+  border-radius: var(--dj-radius-md);
+  box-shadow: var(--dj-shadow-md);
+}
+
+.dj-dropdown-menu[hidden] {
+  display: none;
+}
+
+.dj-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: var(--dj-space-2);
+  width: 100%;
+  padding: var(--dj-space-2) var(--dj-space-3);
+  font-family: var(--dj-font-body);
+  font-size: var(--dj-text-sm);
+  color: var(--dj-text);
+  text-align: left;
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: background var(--dj-dur-fast) var(--dj-ease);
+}
+
+.dj-dropdown-item:hover,
+.dj-dropdown-item:focus-visible {
+  background: var(--dj-surface-raised);
+}
+
+.dj-dropdown-item-danger {
+  color: var(--dj-danger);
+}
+
+.dj-dropdown-divider {
+  height: var(--dj-border-width);
+  margin: var(--dj-space-1) 0;
+  background: var(--dj-border);
+  border: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dj-dropdown-item {
+    transition: none;
+  }
+}
