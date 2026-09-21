@@ -212,6 +212,23 @@
               <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:{{ t.accent }}">{{ t.accent }}</span>
             </div>
           </div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#8E887A">Categorical accents — coding, not mood</span>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:12px">
+              <div style="background:{{ t.surface }};border:1px solid {{ t.border }};border-radius:4px;padding:14px;display:flex;flex-direction:column;gap:10px">
+                <span style="display:block;width:100%;height:28px;border-radius:2px;background:{{ t.accent2 }}"></span>
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:{{ t.accent2 }}">--dj-accent-2</span>
+              </div>
+              <div style="background:{{ t.surface }};border:1px solid {{ t.border }};border-radius:4px;padding:14px;display:flex;flex-direction:column;gap:10px">
+                <span style="display:block;width:100%;height:28px;border-radius:2px;background:{{ t.accent3 }}"></span>
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:{{ t.accent3 }}">--dj-accent-3</span>
+              </div>
+              <div style="background:{{ t.surface }};border:1px solid {{ t.border }};border-radius:4px;padding:14px;display:flex;flex-direction:column;gap:10px">
+                <span style="display:block;width:100%;height:28px;border-radius:2px;background:{{ t.accent4 }}"></span>
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:{{ t.accent4 }}">--dj-accent-4</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -366,6 +383,7 @@
       <li>Default to dark and <span style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#EDE6D6">hoard</span> unless the brief names an element.</li>
       <li>Copy the logo files you need out of <span style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#EDE6D6">brand/logo/</span> — prefer the currentColor variants.</li>
       <li>Shallow radii, hairline borders, one glow, stroke icons, no emoji.</li>
+      <li>Need several simultaneous meaningful colors on one surface (categories, lanes, a gauge)? Use <span style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#EDE6D6">--dj-accent-2/3/4</span> before inventing anything project-specific.</li>
       <li>If a decision isn't covered, choose the more restrained option.</li>
     </ol>
     <div style="display:flex;align-items:center;gap:16px;padding-top:24px;border-top:1px solid #2A251C">
@@ -581,23 +599,23 @@
   &quot;glow&quot;: {&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Preview&quot;}
 }">
 const THEMES = [
-  {key:'hoard',   label:'Hoard — the base identity', accent:'#D4A017', hi:'#F0C24B', accentDeep:'#6E4A0E', bg:'#0D0C0A', surface:'#14120F', raised:'#1C1913', border:'#2A251C',
+  {key:'hoard',   label:'Hoard — the base identity', accent:'#D4A017', hi:'#F0C24B', accentDeep:'#6E4A0E', accent2:'#3BB07C', accent3:'#816ACD', accent4:'#C65373', bg:'#0D0C0A', surface:'#14120F', raised:'#1C1913', border:'#2A251C',
    headline:'Gold on warm near-black', note:'The default. Use it unless a project has a reason to reach for an element.'},
-  {key:'fire',    label:'Fire', accent:'#FF6B2C', hi:'#FF9560', accentDeep:'#7A2408', bg:'#100A07', surface:'#1A100B', raised:'#241610', border:'#352115',
+  {key:'fire',    label:'Fire', accent:'#FF6B2C', hi:'#FF9560', accentDeep:'#7A2408', accent2:'#54D7A7', accent3:'#5A74D8', accent4:'#D754B0', bg:'#100A07', surface:'#1A100B', raised:'#241610', border:'#352115',
    headline:'Heat and urgency', note:'Destructive actions, live and recording states, anything that should feel hot to the touch.'},
-  {key:'frost',   label:'Frost', accent:'#7FD8F0', hi:'#B3EAF8', accentDeep:'#14556E', bg:'#070F12', surface:'#0C1720', raised:'#122029', border:'#1B2E38',
+  {key:'frost',   label:'Frost', accent:'#7FD8F0', hi:'#B3EAF8', accentDeep:'#14556E', accent2:'#DB94D7', accent3:'#CCDB94', accent4:'#94DBBB', bg:'#070F12', surface:'#0C1720', raised:'#122029', border:'#1B2E38',
    headline:'Cold and precise', note:'Analytical surfaces — dashboards, dev tools, anything dense with numbers.'},
-  {key:'storm',   label:'Storm', accent:'#9B8CFF', hi:'#C3B8FF', accentDeep:'#3B2C86', bg:'#0A0912', surface:'#12101F', raised:'#1A1729', border:'#262138',
+  {key:'storm',   label:'Storm', accent:'#9B8CFF', hi:'#C3B8FF', accentDeep:'#3B2C86', accent2:'#E0E9A2', accent3:'#BCE9A2', accent4:'#A2BCE9', bg:'#0A0912', surface:'#12101F', raised:'#1A1729', border:'#262138',
    headline:'Electric and in motion', note:'Music, audio, generative work. The most kinetic theme in the set.'},
-  {key:'stone',   label:'Stone', accent:'#93A98C', hi:'#BACBB4', accentDeep:'#3C4D39', bg:'#0A0C09', surface:'#111510', raised:'#181D16', border:'#242A21',
+  {key:'stone',   label:'Stone', accent:'#93A98C', hi:'#BACBB4', accentDeep:'#3C4D39', accent2:'#8697AF', accent3:'#AF86A4', accent4:'#ABAF86', bg:'#0A0C09', surface:'#111510', raised:'#181D16', border:'#242A21',
    headline:'Weathered and quiet', note:'Archives, long-form reading, documentation. Recedes so the words carry.'},
-  {key:'venom',   label:'Venom', accent:'#A8E01F', hi:'#C9F05E', accentDeep:'#47660A', bg:'#080F04', surface:'#0F170A', raised:'#15200E', border:'#1F2E14',
+  {key:'venom',   label:'Venom', accent:'#A8E01F', hi:'#C9F05E', accentDeep:'#47660A', accent2:'#557EC1', accent3:'#AD5AC3', accent4:'#ADBB44', bg:'#080F04', surface:'#0F170A', raised:'#15200E', border:'#1F2E14',
    headline:'Acidic and alert', note:'Loud by design. Use sparingly, and never next to another element.'},
-  {key:'void',    label:'Void', accent:'#B0A7C9', hi:'#D6CFE6', accentDeep:'#3A3450', bg:'#08080B', surface:'#0F0F14', raised:'#16161D', border:'#22222C',
+  {key:'void',    label:'Void', accent:'#B0A7C9', hi:'#D6CFE6', accentDeep:'#3A3450', accent2:'#C3C6AA', accent3:'#B0C6AA', accent4:'#AAB5C6', bg:'#08080B', surface:'#0F0F14', raised:'#16161D', border:'#22222C',
    headline:'Near-monochrome', note:'The dimmest theme. When the interface should almost disappear.'},
-  {key:'radiant', label:'Radiant', accent:'#FFE9A3', hi:'#FFF6D6', accentDeep:'#8A6A1E', bg:'#12100A', surface:'#1C1810', raised:'#262016', border:'#342C1E',
+  {key:'radiant', label:'Radiant', accent:'#FFE9A3', hi:'#FFF6D6', accentDeep:'#8A6A1E', accent2:'#B4EED6', accent3:'#C3B4EE', accent4:'#EEB4C2', bg:'#12100A', surface:'#1C1810', raised:'#262016', border:'#342C1E',
    headline:'Pale gold, near-white', note:'The lightest dark theme — gold pushed toward bone.'},
-  {key:'deep',    label:'Deep', accent:'#2FB3C9', hi:'#77D7E5', accentDeep:'#0E4A57', bg:'#050F11', surface:'#0B1A1D', raised:'#102429', border:'#183339',
+  {key:'deep',    label:'Deep', accent:'#2FB3C9', hi:'#77D7E5', accentDeep:'#0E4A57', accent2:'#B359B5', accent3:'#9EAC4C', accent4:'#4CAC7A', bg:'#050F11', surface:'#0B1A1D', raised:'#102429', border:'#183339',
    headline:'Submerged and dense', note:'Calm, heavy, underwater. Good for focus modes and players.'}
 ];
 
