@@ -37,12 +37,43 @@
 <link rel="stylesheet" href="components/status-line/status-line.css">
 <style>
   html { scroll-behavior: smooth; }
-  html, body { margin: 0; padding: 0; background: #0D0C0A; }
-  body { font-family: 'IBM Plex Sans', Helvetica, sans-serif; color: #EDE6D6; -webkit-font-smoothing: antialiased; }
+  html, body { margin: 0; padding: 0; background: var(--dj-bg); transition: background 200ms ease; }
+  body { font-family: 'IBM Plex Sans', Helvetica, sans-serif; color: var(--dj-text); -webkit-font-smoothing: antialiased; }
   * { box-sizing: border-box; }
-  a { color: #F0C24B; text-decoration: none; border-bottom: 1px solid #6E4A0E; }
-  a:hover { color: #F6D77E; border-bottom-color: #D4A017; }
+  a { color: var(--dj-accent-hi); text-decoration: none; border-bottom: 1px solid var(--dj-accent-deep); }
+  a:hover { color: var(--dj-accent-hi); border-bottom-color: var(--dj-accent); }
   section[id] { scroll-margin-top: 56px; }
+
+  /* Live theme picker — sits in the section nav bar, sets data-dj-theme on
+     <html> (and mirrors it into every component demo iframe) so every real
+     dj-* component on the page — not just the Elemental dragons swatch
+     chart below, which is a fixed reference and stays put — previews live
+     in all nine elemental themes. The Foundations sections above stay on
+     their literal hex on purpose: they're documenting fixed brand values,
+     not showcasing themeable components. */
+  .dj-theme-picker { display: flex; align-items: center; gap: var(--dj-space-2); flex: none; margin-left: auto; }
+  .dj-theme-picker-label {
+    font-family: var(--dj-font-mono);
+    font-size: 11px;
+    letter-spacing: var(--dj-tracking-label);
+    text-transform: uppercase;
+    color: var(--dj-text-muted);
+    white-space: nowrap;
+  }
+  .dj-theme-picker-swatches { display: flex; align-items: center; gap: 6px; }
+  .dj-theme-picker-swatch {
+    width: 16px;
+    height: 16px;
+    flex: none;
+    padding: 0;
+    background: var(--sw);
+    border: 2px solid transparent;
+    border-radius: var(--dj-radius-full);
+    cursor: pointer;
+    transition: transform 120ms ease, border-color 120ms ease;
+  }
+  .dj-theme-picker-swatch:hover { transform: scale(1.15); }
+  .dj-theme-picker-swatch[aria-pressed="true"] { border-color: var(--dj-text); }
 </style>
 </helmet>
 
@@ -63,6 +94,20 @@
     <a class="dj-section-nav-link" href="#terminal-code" data-dj-nav-target="terminal-code">Terminal</a>
     <a class="dj-section-nav-link" href="#for-agents" data-dj-nav-target="for-agents">Agents</a>
     <a class="dj-section-nav-link" href="#components" data-dj-nav-target="components">Components</a>
+    <div class="dj-theme-picker" id="dj-theme-picker" role="group" aria-label="Preview theme">
+      <span class="dj-theme-picker-label">Theme</span>
+      <div class="dj-theme-picker-swatches">
+        <button type="button" class="dj-theme-picker-swatch" data-theme="hoard" style="--sw:#D4A017" title="Hoard" aria-label="Hoard" aria-pressed="true"></button>
+        <button type="button" class="dj-theme-picker-swatch" data-theme="fire" style="--sw:#FF6B2C" title="Fire" aria-label="Fire" aria-pressed="false"></button>
+        <button type="button" class="dj-theme-picker-swatch" data-theme="frost" style="--sw:#7FD8F0" title="Frost" aria-label="Frost" aria-pressed="false"></button>
+        <button type="button" class="dj-theme-picker-swatch" data-theme="storm" style="--sw:#9B8CFF" title="Storm" aria-label="Storm" aria-pressed="false"></button>
+        <button type="button" class="dj-theme-picker-swatch" data-theme="stone" style="--sw:#93A98C" title="Stone" aria-label="Stone" aria-pressed="false"></button>
+        <button type="button" class="dj-theme-picker-swatch" data-theme="venom" style="--sw:#A8E01F" title="Venom" aria-label="Venom" aria-pressed="false"></button>
+        <button type="button" class="dj-theme-picker-swatch" data-theme="void" style="--sw:#B0A7C9" title="Void" aria-label="Void" aria-pressed="false"></button>
+        <button type="button" class="dj-theme-picker-swatch" data-theme="radiant" style="--sw:#FFE9A3" title="Radiant" aria-label="Radiant" aria-pressed="false"></button>
+        <button type="button" class="dj-theme-picker-swatch" data-theme="deep" style="--sw:#2FB3C9" title="Deep" aria-label="Deep" aria-pressed="false"></button>
+      </div>
+    </div>
   </nav>
 
   <section id="the-mark" style="padding:clamp(56px,8vw,96px) 0;border-bottom:1px solid #2A251C;display:flex;flex-direction:column;gap:40px">
@@ -766,6 +811,41 @@ class Component extends DCLogic {
         neutralBtn.disabled = !removed;
         removeBtn.textContent = removed ? 'Remove' : 'Restore';
       });
+    }
+
+    const picker = document.getElementById('dj-theme-picker');
+    if (picker) {
+      const STORAGE_KEY = 'dj-preview-theme';
+      const swatches = Array.from(picker.querySelectorAll('[data-theme]'));
+      const validThemes = swatches.map((b) => b.dataset.theme);
+      let stored = null;
+      try { stored = localStorage.getItem(STORAGE_KEY); } catch (e) {}
+      const initial = validThemes.includes(stored) ? stored : 'hoard';
+
+      function applyThemeTo(doc, theme) {
+        try { doc.documentElement.setAttribute('data-dj-theme', theme); } catch (e) {}
+      }
+
+      // Component demos live in same-origin iframes with their own <html>;
+      // mirror the pick into each so the whole page — not just the parent
+      // document's own components — previews the selected theme.
+      function syncFrames(theme) {
+        document.querySelectorAll('#components iframe').forEach((frame) => {
+          const apply = () => applyThemeTo(frame.contentDocument, theme);
+          if (frame.contentDocument && frame.contentDocument.readyState !== 'loading') apply();
+          frame.addEventListener('load', apply);
+        });
+      }
+
+      function setTheme(theme) {
+        applyThemeTo(document, theme);
+        syncFrames(theme);
+        try { localStorage.setItem(STORAGE_KEY, theme); } catch (e) {}
+        swatches.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.theme === theme)));
+      }
+
+      swatches.forEach((b) => b.addEventListener('click', () => setTheme(b.dataset.theme)));
+      setTheme(initial);
     }
   });
 })();
