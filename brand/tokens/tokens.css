@@ -70,6 +70,14 @@
   --dj-warning: #F0C24B;
   --dj-danger: #E0492E;
   --dj-info: #7FD8F0;
+
+  /* ---- Derived accent scale ----
+     --dj-accent-hi / --dj-accent / --dj-accent-deep (below, per theme) are
+     the 400/500/700 steps of a 5-step ramp; these two fill the 300 and 600
+     gaps from those same per-theme anchors, so anything needing a full ramp
+     has one for every theme without hand-picking two new hex values each. */
+  --dj-accent-300: color-mix(in srgb, var(--dj-accent-hi) 70%, white 30%);
+  --dj-accent-600: color-mix(in srgb, var(--dj-accent) 55%, var(--dj-accent-deep) 45%);
 }
 
 /* ============================================================
@@ -248,48 +256,58 @@
 
 /* ============================================================
    TERMINAL / CLI — 16-color ANSI scheme
+   Every slot below is derived from existing per-theme role tokens (never a
+   fresh hand-picked hex), so a Djaunt terminal genuinely follows whichever
+   element is active. Semantic slots (red/green/blue) stay pinned to the
+   fixed danger/success/info tokens for tool-output consistency (git status,
+   diagnostics) across themes; yellow/magenta/cyan carry the theme's own
+   accent + categorical accents, continuing Hoard's own convention (its
+   accent already sits in the yellow slot) out to every element.
    ============================================================ */
 :root {
-  --dj-term-bg: #0D0C0A;
-  --dj-term-fg: #EDE6D6;
-  --dj-term-cursor: #F0C24B;
-  --dj-term-selection: #2A251C;
+  --dj-term-bg: var(--dj-bg);
+  --dj-term-fg: var(--dj-text);
+  --dj-term-cursor: var(--dj-accent-hi);
+  --dj-term-selection: var(--dj-border);
 
-  --dj-ansi-black: #14120F;
-  --dj-ansi-red: #C7452B;
-  --dj-ansi-green: #7FA83F;
-  --dj-ansi-yellow: #D4A017;
-  --dj-ansi-blue: #4A7FA8;
-  --dj-ansi-magenta: #8A6FC4;
-  --dj-ansi-cyan: #3E9EAF;
-  --dj-ansi-white: #C8C0AE;
+  --dj-ansi-black: var(--dj-surface);
+  --dj-ansi-red: color-mix(in srgb, var(--dj-danger) 80%, black);
+  --dj-ansi-green: color-mix(in srgb, var(--dj-success) 80%, black);
+  --dj-ansi-yellow: var(--dj-accent);
+  --dj-ansi-blue: color-mix(in srgb, var(--dj-info) 75%, black);
+  --dj-ansi-magenta: var(--dj-accent-3);
+  --dj-ansi-cyan: var(--dj-accent-2);
+  --dj-ansi-white: var(--dj-bone-300);
 
-  --dj-ansi-bright-black: #3A342A;
-  --dj-ansi-bright-red: #E0492E;
-  --dj-ansi-bright-green: #A8E01F;
-  --dj-ansi-bright-yellow: #F0C24B;
-  --dj-ansi-bright-blue: #7FB3D8;
-  --dj-ansi-bright-magenta: #B0A7C9;
-  --dj-ansi-bright-cyan: #7FD8F0;
-  --dj-ansi-bright-white: #FBF8F1;
+  --dj-ansi-bright-black: var(--dj-border);
+  --dj-ansi-bright-red: var(--dj-danger);
+  --dj-ansi-bright-green: var(--dj-success);
+  --dj-ansi-bright-yellow: var(--dj-accent-hi);
+  --dj-ansi-bright-blue: var(--dj-info);
+  --dj-ansi-bright-magenta: var(--dj-accent-4);
+  --dj-ansi-bright-cyan: color-mix(in srgb, var(--dj-accent-2) 70%, white 30%);
+  --dj-ansi-bright-white: var(--dj-bone-100);
 }
 
 /* ============================================================
    CODE SYNTAX — "Djaunt Hoard"
+   Same derivation approach as the ANSI scheme above: every slot maps to an
+   existing per-theme role token, so a Djaunt syntax theme follows whichever
+   element is active instead of staying gold-only.
    ============================================================ */
 :root {
-  --dj-code-bg: #0A0908;
-  --dj-code-fg: #EDE6D6;
-  --dj-code-comment: #615C52;
-  --dj-code-keyword: #D4A017;
-  --dj-code-string: #A8E01F;
-  --dj-code-number: #FF9560;
-  --dj-code-function: #F6D77E;
-  --dj-code-type: #7FD8F0;
-  --dj-code-variable: #EDE6D6;
-  --dj-code-operator: #C8C0AE;
-  --dj-code-punctuation: #8E887A;
-  --dj-code-invalid: #E0492E;
-  --dj-code-line-highlight: #14120F;
-  --dj-code-selection: #2A251C;
+  --dj-code-bg: var(--dj-bg);
+  --dj-code-fg: var(--dj-text);
+  --dj-code-comment: var(--dj-bone-500);
+  --dj-code-keyword: var(--dj-accent);
+  --dj-code-string: var(--dj-accent-2);
+  --dj-code-number: var(--dj-accent-hi);
+  --dj-code-function: var(--dj-accent-300);
+  --dj-code-type: var(--dj-accent-3);
+  --dj-code-variable: var(--dj-text);
+  --dj-code-operator: var(--dj-bone-300);
+  --dj-code-punctuation: var(--dj-text-muted);
+  --dj-code-invalid: var(--dj-danger);
+  --dj-code-line-highlight: var(--dj-surface);
+  --dj-code-selection: var(--dj-border);
 }

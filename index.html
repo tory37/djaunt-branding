@@ -45,12 +45,14 @@
   section[id] { scroll-margin-top: 56px; }
 
   /* Live theme picker — sits in the section nav bar, sets data-dj-theme on
-     <html> (and mirrors it into every component demo iframe) so every real
-     dj-* component on the page — not just the Elemental dragons swatch
-     chart below, which is a fixed reference and stays put — previews live
-     in all nine elemental themes. The Foundations sections above stay on
-     their literal hex on purpose: they're documenting fixed brand values,
-     not showcasing themeable components. */
+     <html> (and mirrors it into every component demo iframe) so the whole
+     page — chrome, logos, component demos, and the Elemental-dragons demo
+     card (which also defaults to and follows this pick) — previews live in
+     all nine elemental themes. What stays literal is narrow and deliberate:
+     content that documents an actual fixed value (Gold/Bone/Ink's real hex,
+     the 9-theme comparison grids, the semantic success/warning/danger/info
+     colors, section 01's named static asset files) — never just "everything
+     above the fold." */
   .dj-theme-picker { display: flex; align-items: center; gap: var(--dj-space-2); flex: none; margin-left: auto; }
   .dj-theme-picker-label {
     font-family: var(--dj-font-mono);
@@ -81,7 +83,8 @@
 
   <header style="display:flex;flex-direction:column;gap:32px;padding:clamp(48px,8vw,104px) 0 clamp(40px,6vw,72px);border-bottom:1px solid var(--dj-border)">
     <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--dj-text-muted)">Brand guidelines — v1</div>
-    <img src="brand/logo/djaunt-lockup-gold.svg" alt="Djaunt" style="width:min(320px,62vw);height:auto;filter:drop-shadow(0 0 48px rgba(212,160,23,0.18))">
+    <span aria-hidden="true" style="display:block;width:min(320px,62vw);aspect-ratio:481.29/474.05;background-color:var(--dj-accent);-webkit-mask:url('brand/logo/djaunt-lockup.svg') center/contain no-repeat;mask:url('brand/logo/djaunt-lockup.svg') center/contain no-repeat;filter:drop-shadow(0 0 48px color-mix(in srgb, var(--dj-accent) 18%, transparent));transition:background-color .25s"></span>
+    <span style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0">Djaunt</span>
     <p style="margin:0;max-width:62ch;font-size:clamp(16px,2vw,20px);line-height:1.6;color:#C8C0AE;text-wrap:pretty">One identity across music, software, and art. Gold dragon on warm near-black, bone as the second voice, and eight elemental variants for when a project needs a different mood. Everything here is enforced by <a href="brand/tokens/tokens.css">tokens.css</a> and described for agents in <a href="BRANDING.md">BRANDING.md</a>.</p>
   </header>
 
@@ -168,35 +171,45 @@
       <p style="margin:0;max-width:62ch;font-size:16px;line-height:1.6;color:var(--dj-text-muted);text-wrap:pretty">Gold is a highlight, never a surface. Bone carries every word of body text — pure white is off-brand. Ink is warm-biased near-black, not neutral grey.</p>
     </div>
     <div style="display:flex;flex-direction:column;gap:20px">
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:2px;border:1px solid #2A251C;border-radius:4px;overflow:hidden">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:2px;border:1px solid var(--dj-border);border-radius:4px;overflow:hidden">
         <div style="background:#F6D77E;padding:20px 16px 16px;display:flex;flex-direction:column;gap:32px;color:#0D0C0A"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em">GOLD 300</span><span style="font-family:'IBM Plex Mono',monospace;font-size:13px">#F6D77E</span></div>
         <div style="background:#F0C24B;padding:20px 16px 16px;display:flex;flex-direction:column;gap:32px;color:#0D0C0A"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em">GOLD 400</span><span style="font-family:'IBM Plex Mono',monospace;font-size:13px">#F0C24B</span></div>
         <div style="background:#D4A017;padding:20px 16px 16px;display:flex;flex-direction:column;gap:32px;color:#0D0C0A"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em">GOLD 500 ★</span><span style="font-family:'IBM Plex Mono',monospace;font-size:13px">#D4A017</span></div>
         <div style="background:#A87A12;padding:20px 16px 16px;display:flex;flex-direction:column;gap:32px;color:#0D0C0A"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em">GOLD 600</span><span style="font-family:'IBM Plex Mono',monospace;font-size:13px">#A87A12</span></div>
         <div style="background:#6E4A0E;padding:20px 16px 16px;display:flex;flex-direction:column;gap:32px;color:#EDE6D6"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em">GOLD 700</span><span style="font-family:'IBM Plex Mono',monospace;font-size:13px">#6E4A0E</span></div>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:2px;border:1px solid #2A251C;border-radius:4px;overflow:hidden">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:2px;border:1px solid var(--dj-border);border-radius:4px;overflow:hidden">
         <div style="background:#FBF8F1;padding:20px 16px 16px;display:flex;flex-direction:column;gap:32px;color:#0D0C0A"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em">BONE 100</span><span style="font-family:'IBM Plex Mono',monospace;font-size:13px">#FBF8F1</span></div>
         <div style="background:#EDE6D6;padding:20px 16px 16px;display:flex;flex-direction:column;gap:32px;color:#0D0C0A"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em">BONE 200 ★</span><span style="font-family:'IBM Plex Mono',monospace;font-size:13px">#EDE6D6</span></div>
         <div style="background:#C8C0AE;padding:20px 16px 16px;display:flex;flex-direction:column;gap:32px;color:#0D0C0A"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em">BONE 300</span><span style="font-family:'IBM Plex Mono',monospace;font-size:13px">#C8C0AE</span></div>
         <div style="background:#8E887A;padding:20px 16px 16px;display:flex;flex-direction:column;gap:32px;color:#0D0C0A"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em">BONE 400</span><span style="font-family:'IBM Plex Mono',monospace;font-size:13px">#8E887A</span></div>
         <div style="background:#615C52;padding:20px 16px 16px;display:flex;flex-direction:column;gap:32px;color:#EDE6D6"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em">BONE 500</span><span style="font-family:'IBM Plex Mono',monospace;font-size:13px">#615C52</span></div>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:2px;border:1px solid #2A251C;border-radius:4px;overflow:hidden">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:2px;border:1px solid var(--dj-border);border-radius:4px;overflow:hidden">
         <div style="background:#0A0908;padding:20px 16px 16px;display:flex;flex-direction:column;gap:32px;color:#C8C0AE"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em">INK 900</span><span style="font-family:'IBM Plex Mono',monospace;font-size:13px">#0A0908</span></div>
         <div style="background:#0D0C0A;padding:20px 16px 16px;display:flex;flex-direction:column;gap:32px;color:#C8C0AE"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em">INK 800 ★</span><span style="font-family:'IBM Plex Mono',monospace;font-size:13px">#0D0C0A</span></div>
         <div style="background:#14120F;padding:20px 16px 16px;display:flex;flex-direction:column;gap:32px;color:#C8C0AE"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em">INK 700</span><span style="font-family:'IBM Plex Mono',monospace;font-size:13px">#14120F</span></div>
         <div style="background:#1C1913;padding:20px 16px 16px;display:flex;flex-direction:column;gap:32px;color:#C8C0AE"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em">INK 600</span><span style="font-family:'IBM Plex Mono',monospace;font-size:13px">#1C1913</span></div>
         <div style="background:#2A251C;padding:20px 16px 16px;display:flex;flex-direction:column;gap:32px;color:#C8C0AE"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em">INK 500</span><span style="font-family:'IBM Plex Mono',monospace;font-size:13px">#2A251C</span></div>
       </div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--dj-text-muted)">Accent — follows the picker above, not fixed like Gold/Bone/Ink</span>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:2px;border:1px solid var(--dj-border);border-radius:4px;overflow:hidden">
+          <div style="background:var(--dj-accent-300);padding:20px 16px 16px;display:flex;flex-direction:column;gap:32px;color:var(--dj-on-accent);transition:background .25s"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em">ACCENT 300</span><span style="font-family:'IBM Plex Mono',monospace;font-size:13px">--dj-accent-300</span></div>
+          <div style="background:var(--dj-accent-hi);padding:20px 16px 16px;display:flex;flex-direction:column;gap:32px;color:var(--dj-on-accent);transition:background .25s"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em">ACCENT 400</span><span style="font-family:'IBM Plex Mono',monospace;font-size:13px">--dj-accent-hi</span></div>
+          <div style="background:var(--dj-accent);padding:20px 16px 16px;display:flex;flex-direction:column;gap:32px;color:var(--dj-on-accent);transition:background .25s"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em">ACCENT 500 ★</span><span style="font-family:'IBM Plex Mono',monospace;font-size:13px">--dj-accent</span></div>
+          <div style="background:var(--dj-accent-600);padding:20px 16px 16px;display:flex;flex-direction:column;gap:32px;color:var(--dj-on-accent);transition:background .25s"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em">ACCENT 600</span><span style="font-family:'IBM Plex Mono',monospace;font-size:13px">--dj-accent-600</span></div>
+          <div style="background:var(--dj-accent-deep);padding:20px 16px 16px;display:flex;flex-direction:column;gap:32px;color:var(--dj-text);transition:background .25s"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em">ACCENT 700</span><span style="font-family:'IBM Plex Mono',monospace;font-size:13px">--dj-accent-deep</span></div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section id="elemental-dragons" style="padding:clamp(56px,8vw,96px) 0;border-bottom:1px solid #2A251C;display:flex;flex-direction:column;gap:40px">
+  <section id="elemental-dragons" style="padding:clamp(56px,8vw,96px) 0;border-bottom:1px solid var(--dj-border);display:flex;flex-direction:column;gap:40px">
     <div style="display:flex;flex-direction:column;gap:12px">
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#8E887A">03 — Elemental dragons</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--dj-text-muted)">03 — Elemental dragons</div>
       <h2 style="margin:0;font-family:'Archivo',sans-serif;font-weight:700;letter-spacing:-0.02em;font-size:clamp(28px,4vw,44px);line-height:1.08">Nine themes, one system</h2>
-      <p style="margin:0;max-width:62ch;font-size:16px;line-height:1.6;color:#8E887A;text-wrap:pretty">Each theme swaps the accent and the background family. Type, spacing, geometry, and the semantic colors never move. One theme per surface — an element is a mood for a whole product, not a palette to pick from per component. Click through the set — the mark and the components below move with it.</p>
+      <p style="margin:0;max-width:62ch;font-size:16px;line-height:1.6;color:var(--dj-text-muted);text-wrap:pretty">Each theme swaps the accent and the background family. Type, spacing, geometry, and the semantic colors never move. One theme per surface — an element is a mood for a whole product, not a palette to pick from per component. The demo card below defaults to and follows the picker above; its own hoard/fire/frost/… buttons let you preview any theme locally without moving the rest of the page.</p>
     </div>
 
     <div style="display:flex;flex-wrap:wrap;gap:8px">
@@ -224,45 +237,45 @@
           </div>
           <div style="display:flex;flex-direction:column;gap:10px">
             <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:{{ t.accent }}">{{ t.label }}</div>
-            <h3 style="margin:0;font-family:'Archivo',sans-serif;font-weight:700;letter-spacing:-0.02em;font-size:clamp(24px,3.4vw,36px);line-height:1.1;color:#EDE6D6">{{ t.headline }}</h3>
-            <p style="margin:0;max-width:56ch;font-size:15px;line-height:1.6;color:#8E887A;text-wrap:pretty">{{ t.note }}</p>
+            <h3 style="margin:0;font-family:'Archivo',sans-serif;font-weight:700;letter-spacing:-0.02em;font-size:clamp(24px,3.4vw,36px);line-height:1.1;color:var(--dj-text)">{{ t.headline }}</h3>
+            <p style="margin:0;max-width:56ch;font-size:15px;line-height:1.6;color:var(--dj-text-muted);text-wrap:pretty">{{ t.note }}</p>
           </div>
           <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
             <button type="button" style="font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:500;padding:11px 20px;border:none;border-radius:3px;cursor:pointer;background:{{ t.accent }};color:{{ t.bg }};box-shadow:{{ t.glow }}">Primary action</button>
-            <button type="button" style="font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:500;padding:11px 20px;border-radius:3px;cursor:pointer;background:transparent;border:1px solid {{ t.border }};color:#EDE6D6">Secondary</button>
+            <button type="button" style="font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:500;padding:11px 20px;border-radius:3px;cursor:pointer;background:transparent;border:1px solid {{ t.border }};color:var(--dj-text)">Secondary</button>
             <span style="font-family:'IBM Plex Sans',sans-serif;font-size:14px;color:{{ t.accent }};border-bottom:1px solid {{ t.accentDeep }}">Inline link</span>
           </div>
           <div style="display:flex;gap:4px;border-bottom:1px solid {{ t.border }}">
             <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;padding:10px 4px;color:{{ t.accent }};border-bottom:2px solid {{ t.accent }}">Overview</span>
-            <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;padding:10px 14px;color:#8E887A">Activity</span>
-            <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;padding:10px 14px;color:#8E887A">Settings</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;padding:10px 14px;color:var(--dj-text-muted)">Activity</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;padding:10px 14px;color:var(--dj-text-muted)">Settings</span>
           </div>
           <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
-            <input type="text" placeholder="Search the archive…" readonly style="font-family:'IBM Plex Sans',sans-serif;font-size:14px;padding:10px 14px;border-radius:3px;background:{{ t.surface }};border:1px solid {{ t.border }};color:#EDE6D6;min-width:220px">
+            <input type="text" placeholder="Search the archive…" readonly style="font-family:'IBM Plex Sans',sans-serif;font-size:14px;padding:10px 14px;border-radius:3px;background:{{ t.surface }};border:1px solid {{ t.border }};color:var(--dj-text);min-width:220px">
             <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;padding:5px 10px;border-radius:999px;border:1px solid {{ t.accentDeep }};color:{{ t.accent }}">tag</span>
-            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;padding:5px 10px;border-radius:999px;border:1px solid {{ t.border }};color:#8E887A">tag</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;padding:5px 10px;border-radius:999px;border:1px solid {{ t.border }};color:var(--dj-text-muted)">tag</span>
             <span style="font-family:'IBM Plex Sans',sans-serif;font-size:13px;font-weight:500;padding:8px 16px;border-radius:3px;background:{{ t.accent }};color:{{ t.bg }};box-shadow:{{ t.glow }}">● Playing</span>
           </div>
           <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:12px">
             <div style="background:{{ t.surface }};border:1px solid {{ t.border }};border-radius:4px;padding:18px;display:flex;flex-direction:column;gap:8px">
-              <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#8E887A">Streams</span>
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--dj-text-muted)">Streams</span>
               <span style="font-family:'Archivo',sans-serif;font-weight:700;font-size:28px;color:{{ t.accent }}">4,102</span>
             </div>
             <div style="background:{{ t.surface }};border:1px solid {{ t.border }};border-radius:4px;padding:18px;display:flex;flex-direction:column;gap:12px">
-              <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#8E887A">Surface</span>
-              <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#C8C0AE">{{ t.surface }}</span>
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--dj-text-muted)">Surface</span>
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--dj-text-muted)">{{ t.surface }}</span>
             </div>
             <div style="background:{{ t.raised }};border:1px solid {{ t.border }};border-radius:4px;padding:18px;display:flex;flex-direction:column;gap:12px">
-              <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#8E887A">Raised</span>
-              <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#C8C0AE">{{ t.raised }}</span>
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--dj-text-muted)">Raised</span>
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--dj-text-muted)">{{ t.raised }}</span>
             </div>
             <div style="background:{{ t.surface }};border:1px solid {{ t.border }};border-radius:4px;padding:18px;display:flex;flex-direction:column;gap:12px">
-              <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#8E887A">Accent</span>
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--dj-text-muted)">Accent</span>
               <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:{{ t.accent }}">{{ t.accent }}</span>
             </div>
           </div>
           <div style="display:flex;flex-direction:column;gap:10px">
-            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#8E887A">Categorical accents — coding, not mood</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--dj-text-muted)">Categorical accents — coding, not mood</span>
             <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:12px">
               <div style="background:{{ t.surface }};border:1px solid {{ t.border }};border-radius:4px;padding:14px;display:flex;flex-direction:column;gap:10px">
                 <span style="display:block;width:100%;height:28px;border-radius:2px;background:{{ t.accent2 }}"></span>
@@ -294,13 +307,13 @@
       <div style="background:#050F11;padding:20px 16px;display:flex;flex-direction:column;gap:14px"><span style="width:100%;height:36px;border-radius:2px;background:#2FB3C9"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#C8C0AE">deep</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8E887A">#2FB3C9</span></div>
     </div>
 
-    <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:center;background:#14120F;border:1px solid #2A251C;border-radius:4px;padding:24px">
-      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#8E887A">Fixed across all themes</span>
+    <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:center;background:var(--dj-surface);border:1px solid var(--dj-border);border-radius:4px;padding:24px">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--dj-text-muted)">Fixed across all themes</span>
       <div style="display:flex;flex-wrap:wrap;gap:20px">
-        <span style="display:flex;align-items:center;gap:8px;font-size:14px;color:#C8C0AE"><span style="width:10px;height:10px;border-radius:999px;background:#5FBF7A"></span>success</span>
-        <span style="display:flex;align-items:center;gap:8px;font-size:14px;color:#C8C0AE"><span style="width:10px;height:10px;border-radius:999px;background:#F0C24B"></span>warning</span>
-        <span style="display:flex;align-items:center;gap:8px;font-size:14px;color:#C8C0AE"><span style="width:10px;height:10px;border-radius:999px;background:#E0492E"></span>danger</span>
-        <span style="display:flex;align-items:center;gap:8px;font-size:14px;color:#C8C0AE"><span style="width:10px;height:10px;border-radius:999px;background:#7FD8F0"></span>info</span>
+        <span style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--dj-text-muted)"><span style="width:10px;height:10px;border-radius:999px;background:#5FBF7A"></span>success</span>
+        <span style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--dj-text-muted)"><span style="width:10px;height:10px;border-radius:999px;background:#F0C24B"></span>warning</span>
+        <span style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--dj-text-muted)"><span style="width:10px;height:10px;border-radius:999px;background:#E0492E"></span>danger</span>
+        <span style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--dj-text-muted)"><span style="width:10px;height:10px;border-radius:999px;background:#7FD8F0"></span>info</span>
       </div>
     </div>
   </section>
@@ -353,17 +366,17 @@
         <span style="font-size:14px;line-height:1.55;color:var(--dj-text-muted)">Pills are for status dots and avatars only.</span>
       </div>
       <div style="background:var(--dj-surface);border:1px solid var(--dj-border);border-radius:4px;padding:28px;display:flex;flex-direction:column;gap:20px">
-        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#8E887A">Space — 4px base</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--dj-text-muted)">Space — 4px base</span>
         <div style="display:flex;gap:6px;align-items:flex-end;height:52px">
-          <span style="width:16px;height:4px;background:#6E4A0E"></span>
-          <span style="width:16px;height:8px;background:#8A6A18"></span>
-          <span style="width:16px;height:12px;background:#A87A12"></span>
-          <span style="width:16px;height:16px;background:#C09014"></span>
-          <span style="width:16px;height:24px;background:#D4A017"></span>
-          <span style="width:16px;height:32px;background:#E0B02F"></span>
-          <span style="width:16px;height:48px;background:#F0C24B"></span>
+          <span style="width:16px;height:4px;background:var(--dj-accent-deep)"></span>
+          <span style="width:16px;height:8px;background:color-mix(in srgb, var(--dj-accent-deep), var(--dj-accent) 40%)"></span>
+          <span style="width:16px;height:12px;background:color-mix(in srgb, var(--dj-accent-deep), var(--dj-accent) 70%)"></span>
+          <span style="width:16px;height:16px;background:var(--dj-accent-600)"></span>
+          <span style="width:16px;height:24px;background:var(--dj-accent)"></span>
+          <span style="width:16px;height:32px;background:var(--dj-accent-hi)"></span>
+          <span style="width:16px;height:48px;background:var(--dj-accent-300)"></span>
         </div>
-        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#C8C0AE">4 8 12 16 24 32 48 64 96</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--dj-text-muted)">4 8 12 16 24 32 48 64 96</span>
         <span style="font-size:14px;line-height:1.55;color:var(--dj-text-muted)">Err toward more. Dark grounds need room.</span>
       </div>
       <div style="background:var(--dj-surface);border:1px solid var(--dj-border);border-radius:4px;padding:28px;display:flex;flex-direction:column;gap:20px">
@@ -390,30 +403,30 @@
   <section id="terminal-code" style="padding:clamp(56px,8vw,96px) 0;border-bottom:1px solid var(--dj-border);display:flex;flex-direction:column;gap:40px">
     <div style="display:flex;flex-direction:column;gap:12px">
       <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--dj-text-muted)">06 — Terminal &amp; code</div>
-      <h2 style="margin:0;font-family:'Archivo',sans-serif;font-weight:700;letter-spacing:-0.02em;font-size:clamp(28px,4vw,44px);line-height:1.08">Djaunt Hoard</h2>
-      <p style="margin:0;max-width:62ch;font-size:16px;line-height:1.6;color:var(--dj-text-muted);text-wrap:pretty">A 16-color ANSI scheme and a matching syntax theme, so a Djaunt tool still looks like Djaunt inside a shell or an editor.</p>
+      <h2 style="margin:0;font-family:'Archivo',sans-serif;font-weight:700;letter-spacing:-0.02em;font-size:clamp(28px,4vw,44px);line-height:1.08">Djaunt Hoard, in nine elements</h2>
+      <p style="margin:0;max-width:62ch;font-size:16px;line-height:1.6;color:var(--dj-text-muted);text-wrap:pretty">A 16-color ANSI scheme and a matching syntax theme, so a Djaunt tool still looks like Djaunt inside a shell or an editor — every slot below is derived from the active element's own tokens, not hand-picked per theme, so it follows the picker above like everything else.</p>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:20px">
-      <div style="background:#0A0908;border:1px solid #2A251C;border-radius:4px;padding:24px;font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:1.8;overflow-x:auto">
-        <div style="color:#D4A017">$ djaunt build --theme storm</div>
-        <div style="color:#8E887A">reading brand/tokens/tokens.css</div>
-        <div style="color:#A8E01F">✓ tokens resolved <span style="color:#8E887A">(9 themes)</span></div>
-        <div style="color:#A8E01F">✓ logo assets copied <span style="color:#8E887A">(3)</span></div>
-        <div style="color:#F0C24B">! wordmark below 80px min — using icon</div>
-        <div style="color:#C8C0AE">built in 412ms</div>
-        <div style="color:#F0C24B">$ <span style="background:#F0C24B;color:#0A0908">&nbsp;</span></div>
+      <div style="background:var(--dj-code-bg);border:1px solid var(--dj-border);border-radius:4px;padding:24px;font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:1.8;overflow-x:auto">
+        <div style="color:var(--dj-ansi-yellow)">$ djaunt build --theme storm</div>
+        <div style="color:var(--dj-code-comment)">reading brand/tokens/tokens.css</div>
+        <div style="color:var(--dj-ansi-bright-green)">✓ tokens resolved <span style="color:var(--dj-code-comment)">(9 themes)</span></div>
+        <div style="color:var(--dj-ansi-bright-green)">✓ logo assets copied <span style="color:var(--dj-code-comment)">(3)</span></div>
+        <div style="color:var(--dj-ansi-bright-yellow)">! wordmark below 80px min — using icon</div>
+        <div style="color:var(--dj-ansi-white)">built in 412ms</div>
+        <div style="color:var(--dj-term-cursor)">$ <span style="background:var(--dj-term-cursor);color:var(--dj-code-bg)">&nbsp;</span></div>
       </div>
-      <div style="background:#0A0908;border:1px solid #2A251C;border-radius:4px;padding:24px;font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:1.8;overflow-x:auto">
-        <div><span style="color:#615C52">// theme is a mood, not a palette</span></div>
-        <div><span style="color:#D4A017">export function</span> <span style="color:#F6D77E">applyTheme</span><span style="color:#8E887A">(</span><span style="color:#EDE6D6">el</span><span style="color:#8E887A">,</span> <span style="color:#EDE6D6">name</span> <span style="color:#C8C0AE">=</span> <span style="color:#A8E01F">'hoard'</span><span style="color:#8E887A">) {</span></div>
-        <div>&nbsp;&nbsp;<span style="color:#EDE6D6">el</span><span style="color:#8E887A">.</span><span style="color:#F6D77E">setAttribute</span><span style="color:#8E887A">(</span><span style="color:#A8E01F">'data-dj-theme'</span><span style="color:#8E887A">,</span> <span style="color:#EDE6D6">name</span><span style="color:#8E887A">);</span></div>
-        <div>&nbsp;&nbsp;<span style="color:#D4A017">return</span> <span style="color:#7FD8F0">THEMES</span><span style="color:#8E887A">[</span><span style="color:#EDE6D6">name</span><span style="color:#8E887A">] ??</span> <span style="color:#7FD8F0">THEMES</span><span style="color:#8E887A">.</span><span style="color:#EDE6D6">hoard</span><span style="color:#8E887A">;</span></div>
-        <div><span style="color:#8E887A">}</span></div>
+      <div style="background:var(--dj-code-bg);border:1px solid var(--dj-border);border-radius:4px;padding:24px;font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:1.8;overflow-x:auto">
+        <div><span style="color:var(--dj-code-comment)">// theme is a mood, not a palette</span></div>
+        <div><span style="color:var(--dj-code-keyword)">export function</span> <span style="color:var(--dj-code-function)">applyTheme</span><span style="color:var(--dj-code-punctuation)">(</span><span style="color:var(--dj-code-variable)">el</span><span style="color:var(--dj-code-punctuation)">,</span> <span style="color:var(--dj-code-variable)">name</span> <span style="color:var(--dj-code-operator)">=</span> <span style="color:var(--dj-code-string)">'hoard'</span><span style="color:var(--dj-code-punctuation)">) {</span></div>
+        <div>&nbsp;&nbsp;<span style="color:var(--dj-code-variable)">el</span><span style="color:var(--dj-code-punctuation)">.</span><span style="color:var(--dj-code-function)">setAttribute</span><span style="color:var(--dj-code-punctuation)">(</span><span style="color:var(--dj-code-string)">'data-dj-theme'</span><span style="color:var(--dj-code-punctuation)">,</span> <span style="color:var(--dj-code-variable)">name</span><span style="color:var(--dj-code-punctuation)">);</span></div>
+        <div>&nbsp;&nbsp;<span style="color:var(--dj-code-keyword)">return</span> <span style="color:var(--dj-code-type)">THEMES</span><span style="color:var(--dj-code-punctuation)">[</span><span style="color:var(--dj-code-variable)">name</span><span style="color:var(--dj-code-punctuation)">] ??</span> <span style="color:var(--dj-code-type)">THEMES</span><span style="color:var(--dj-code-punctuation)">.</span><span style="color:var(--dj-code-variable)">hoard</span><span style="color:var(--dj-code-punctuation)">;</span></div>
+        <div><span style="color:var(--dj-code-punctuation)">}</span></div>
       </div>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(8,1fr);gap:2px;border:1px solid #2A251C;border-radius:4px;overflow:hidden">
-      <span style="height:34px;background:#14120F"></span><span style="height:34px;background:#C7452B"></span><span style="height:34px;background:#7FA83F"></span><span style="height:34px;background:#D4A017"></span><span style="height:34px;background:#4A7FA8"></span><span style="height:34px;background:#8A6FC4"></span><span style="height:34px;background:#3E9EAF"></span><span style="height:34px;background:#C8C0AE"></span>
-      <span style="height:34px;background:#3A342A"></span><span style="height:34px;background:#E0492E"></span><span style="height:34px;background:#A8E01F"></span><span style="height:34px;background:#F0C24B"></span><span style="height:34px;background:#7FB3D8"></span><span style="height:34px;background:#B0A7C9"></span><span style="height:34px;background:#7FD8F0"></span><span style="height:34px;background:#FBF8F1"></span>
+    <div style="display:grid;grid-template-columns:repeat(8,1fr);gap:2px;border:1px solid var(--dj-border);border-radius:4px;overflow:hidden">
+      <span style="height:34px;background:var(--dj-ansi-black)" title="--dj-ansi-black"></span><span style="height:34px;background:var(--dj-ansi-red)" title="--dj-ansi-red"></span><span style="height:34px;background:var(--dj-ansi-green)" title="--dj-ansi-green"></span><span style="height:34px;background:var(--dj-ansi-yellow)" title="--dj-ansi-yellow"></span><span style="height:34px;background:var(--dj-ansi-blue)" title="--dj-ansi-blue"></span><span style="height:34px;background:var(--dj-ansi-magenta)" title="--dj-ansi-magenta"></span><span style="height:34px;background:var(--dj-ansi-cyan)" title="--dj-ansi-cyan"></span><span style="height:34px;background:var(--dj-ansi-white)" title="--dj-ansi-white"></span>
+      <span style="height:34px;background:var(--dj-ansi-bright-black)" title="--dj-ansi-bright-black"></span><span style="height:34px;background:var(--dj-ansi-bright-red)" title="--dj-ansi-bright-red"></span><span style="height:34px;background:var(--dj-ansi-bright-green)" title="--dj-ansi-bright-green"></span><span style="height:34px;background:var(--dj-ansi-bright-yellow)" title="--dj-ansi-bright-yellow"></span><span style="height:34px;background:var(--dj-ansi-bright-blue)" title="--dj-ansi-bright-blue"></span><span style="height:34px;background:var(--dj-ansi-bright-magenta)" title="--dj-ansi-bright-magenta"></span><span style="height:34px;background:var(--dj-ansi-bright-cyan)" title="--dj-ansi-bright-cyan"></span><span style="height:34px;background:var(--dj-ansi-bright-white)" title="--dj-ansi-bright-white"></span>
     </div>
   </section>
 
@@ -436,7 +449,7 @@
       <li>If a decision isn't covered, choose the more restrained option.</li>
     </ol>
     <div style="display:flex;align-items:center;gap:16px;padding-top:24px;border-top:1px solid var(--dj-border)">
-      <img src="brand/logo/djaunt-icon-gold.svg" alt="" style="width:28px;height:auto;opacity:0.8">
+      <span aria-hidden="true" style="display:block;width:28px;aspect-ratio:414.58/372.82;background-color:var(--dj-accent);opacity:0.8;-webkit-mask:url('brand/logo/djaunt-icon.svg') center/contain no-repeat;mask:url('brand/logo/djaunt-icon.svg') center/contain no-repeat"></span>
       <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#615C52">Djaunt — guidelines v1 — 2026</span>
     </div>
   </section>
@@ -751,8 +764,23 @@ const THEMES = [
 class Component extends DCLogic {
   state = { i: null };
   pick(i) { return () => this.setState({ i }); }
-  componentDidUpdate(prev) {
-    if (prev.theme !== this.props.theme && this.state.i !== null) this.setState({ i: null });
+  // Defaults to (and follows) whichever theme the top-nav picker has set on
+  // <html>, via the 'dj-global-theme-change' event djSetTheme() dispatches
+  // below. A click on this card's own hoard/fire/frost/… buttons still
+  // overrides locally (via pick()) without touching the rest of the page —
+  // it just no longer survives the *next* global pick, same as before.
+  componentDidMount() {
+    this._onGlobalTheme = (e) => {
+      const idx = THEMES.findIndex(t => t.key === e.detail);
+      if (idx !== -1) this.setState({ i: idx });
+    };
+    window.addEventListener('dj-global-theme-change', this._onGlobalTheme);
+    const current = document.documentElement.getAttribute('data-dj-theme');
+    const idx = THEMES.findIndex(t => t.key === current);
+    if (idx !== -1) this.setState({ i: idx });
+  }
+  componentWillUnmount() {
+    window.removeEventListener('dj-global-theme-change', this._onGlobalTheme);
   }
   renderVals() {
     const fromProp = Math.max(0, THEMES.findIndex(t => t.key === (this.props.theme ?? 'hoard')));
@@ -765,7 +793,7 @@ class Component extends DCLogic {
       vals['pick' + i] = this.pick(i);
       vals['style' + i] = base + (i === idx
         ? `background:${th.accentDeep};border:1px solid ${th.accent};color:${th.accent};`
-        : `background:#14120F;border:1px solid #2A251C;color:#C8C0AE;`);
+        : `background:var(--dj-surface);border:1px solid var(--dj-border);color:var(--dj-text-muted);`);
     });
     return vals;
   }
@@ -841,6 +869,9 @@ class Component extends DCLogic {
     djSyncFrames(theme);
     djMarkPressed(theme);
     try { localStorage.setItem(THEME_STORAGE_KEY, theme); } catch (e) {}
+    // Lets the Elemental-dragons demo card (section 03) default to and
+    // follow this pick, since it has its own decoupled local state.
+    window.dispatchEvent(new CustomEvent('dj-global-theme-change', { detail: theme }));
   }
 
   // Applies immediately — doesn't need the picker's own markup to exist,
