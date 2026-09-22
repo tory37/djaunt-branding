@@ -797,6 +797,62 @@ class Component extends DCLogic {
     observer.observe(document.documentElement, { childList: true, subtree: true });
   }
 
+  // Theme picker wiring lives outside afterHydration and binds to `document`
+  // rather than to the swatch buttons themselves: this page's whole template
+  // shares one root DCLogic (the Elemental-dragons swatch demo's Component
+  // class above), so *any* setState anywhere on the page — including that
+  // demo's own swatch clicks — re-renders the full tree through React and
+  // can hand back new DOM nodes for the picker's buttons. A listener bound
+  // to a specific node goes stale the next time that happens; a delegated
+  // listener on `document` never does.
+  const THEME_STORAGE_KEY = 'dj-preview-theme';
+  const VALID_THEMES = ['hoard', 'fire', 'frost', 'storm', 'stone', 'venom', 'void', 'radiant', 'deep'];
+
+  function djApplyThemeTo(doc, theme) {
+    try { doc.documentElement.setAttribute('data-dj-theme', theme); } catch (e) {}
+  }
+
+  function djStoredTheme() {
+    let stored = null;
+    try { stored = localStorage.getItem(THEME_STORAGE_KEY); } catch (e) {}
+    return VALID_THEMES.includes(stored) ? stored : 'hoard';
+  }
+
+  // Component demos live in same-origin iframes with their own <html>;
+  // mirror the pick into each so the whole page — not just the parent
+  // document's own components — previews the selected theme.
+  function djSyncFrames(theme) {
+    document.querySelectorAll('#components iframe').forEach((frame) => {
+      const apply = () => djApplyThemeTo(frame.contentDocument, theme);
+      if (frame.contentDocument && frame.contentDocument.readyState !== 'loading') apply();
+      frame.addEventListener('load', apply);
+    });
+  }
+
+  function djMarkPressed(theme) {
+    document.querySelectorAll('.dj-theme-picker-swatch').forEach((b) => {
+      b.setAttribute('aria-pressed', String(b.dataset.theme === theme));
+    });
+  }
+
+  function djSetTheme(theme) {
+    if (VALID_THEMES.indexOf(theme) === -1) return;
+    djApplyThemeTo(document, theme);
+    djSyncFrames(theme);
+    djMarkPressed(theme);
+    try { localStorage.setItem(THEME_STORAGE_KEY, theme); } catch (e) {}
+  }
+
+  // Applies immediately — doesn't need the picker's own markup to exist,
+  // so it isn't gated behind hydration (and avoids a flash of the wrong
+  // theme for a returning visitor, since tokens.css is already loaded).
+  djApplyThemeTo(document, djStoredTheme());
+
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest && e.target.closest('.dj-theme-picker-swatch');
+    if (btn && btn.dataset.theme) djSetTheme(btn.dataset.theme);
+  });
+
   afterHydration(() => {
     if (location.hash) {
       const target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
@@ -813,39 +869,13 @@ class Component extends DCLogic {
       });
     }
 
-    const picker = document.getElementById('dj-theme-picker');
-    if (picker) {
-      const STORAGE_KEY = 'dj-preview-theme';
-      const swatches = Array.from(picker.querySelectorAll('[data-theme]'));
-      const validThemes = swatches.map((b) => b.dataset.theme);
-      let stored = null;
-      try { stored = localStorage.getItem(STORAGE_KEY); } catch (e) {}
-      const initial = validThemes.includes(stored) ? stored : 'hoard';
-
-      function applyThemeTo(doc, theme) {
-        try { doc.documentElement.setAttribute('data-dj-theme', theme); } catch (e) {}
-      }
-
-      // Component demos live in same-origin iframes with their own <html>;
-      // mirror the pick into each so the whole page — not just the parent
-      // document's own components — previews the selected theme.
-      function syncFrames(theme) {
-        document.querySelectorAll('#components iframe').forEach((frame) => {
-          const apply = () => applyThemeTo(frame.contentDocument, theme);
-          if (frame.contentDocument && frame.contentDocument.readyState !== 'loading') apply();
-          frame.addEventListener('load', apply);
-        });
-      }
-
-      function setTheme(theme) {
-        applyThemeTo(document, theme);
-        syncFrames(theme);
-        try { localStorage.setItem(STORAGE_KEY, theme); } catch (e) {}
-        swatches.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.theme === theme)));
-      }
-
-      swatches.forEach((b) => b.addEventListener('click', () => setTheme(b.dataset.theme)));
-      setTheme(initial);
+    // The picker's own markup (and the demo iframes) only exist for real
+    // once hydration swaps in the rendered tree — sync both to whatever
+    // theme is already applied to <html> (set above, pre-hydration).
+    if (document.getElementById('dj-theme-picker')) {
+      const current = document.documentElement.getAttribute('data-dj-theme') || 'hoard';
+      djSyncFrames(current);
+      djMarkPressed(current);
     }
   });
 })();
