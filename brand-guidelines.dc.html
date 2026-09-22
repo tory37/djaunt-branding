@@ -32,8 +32,26 @@
      that documents an actual fixed value (Gold/Bone/Ink's real hex, the
      9-theme comparison grids, the semantic success/warning/danger/info
      colors) — never just "everything above the fold." */
-  .dj-theme-picker { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .dj-theme-picker {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    z-index: 60;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 8px;
+    background: var(--dj-surface);
+    border: 1px solid var(--dj-border);
+    border-right: none;
+    border-radius: 8px 0 0 8px;
+    box-shadow: 0 16px 48px rgb(0 0 0 / 0.6);
+  }
   .dj-theme-picker-label {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
     font-family: 'IBM Plex Mono', monospace;
     font-size: 11px;
     letter-spacing: 0.14em;
@@ -41,7 +59,7 @@
     color: var(--dj-text-muted);
     white-space: nowrap;
   }
-  .dj-theme-picker-swatches { display: flex; align-items: center; gap: 6px; }
+  .dj-theme-picker-swatches { display: flex; flex-direction: column; align-items: center; gap: 8px; }
   .dj-theme-picker-swatch {
     width: 16px;
     height: 16px;
@@ -61,27 +79,26 @@
 <div style="background:var(--dj-bg);color:var(--dj-text);min-height:100vh;padding:0 clamp(20px,5vw,72px) 120px;max-width:1240px;margin:0 auto">
 
   <header style="display:flex;flex-direction:column;gap:32px;padding:clamp(48px,8vw,104px) 0 clamp(40px,6vw,72px);border-bottom:1px solid var(--dj-border)">
-    <div style="display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--dj-text-muted)">Brand guidelines — v1</div>
-      <div class="dj-theme-picker" id="dj-theme-picker" role="group" aria-label="Preview theme">
-        <span class="dj-theme-picker-label">Theme</span>
-        <div class="dj-theme-picker-swatches">
-          <button type="button" class="dj-theme-picker-swatch" data-theme="hoard" style="--sw:#D4A017" title="Hoard" aria-label="Hoard" aria-pressed="true"></button>
-          <button type="button" class="dj-theme-picker-swatch" data-theme="fire" style="--sw:#FF6B2C" title="Fire" aria-label="Fire" aria-pressed="false"></button>
-          <button type="button" class="dj-theme-picker-swatch" data-theme="frost" style="--sw:#7FD8F0" title="Frost" aria-label="Frost" aria-pressed="false"></button>
-          <button type="button" class="dj-theme-picker-swatch" data-theme="storm" style="--sw:#9B8CFF" title="Storm" aria-label="Storm" aria-pressed="false"></button>
-          <button type="button" class="dj-theme-picker-swatch" data-theme="stone" style="--sw:#93A98C" title="Stone" aria-label="Stone" aria-pressed="false"></button>
-          <button type="button" class="dj-theme-picker-swatch" data-theme="venom" style="--sw:#A8E01F" title="Venom" aria-label="Venom" aria-pressed="false"></button>
-          <button type="button" class="dj-theme-picker-swatch" data-theme="void" style="--sw:#B0A7C9" title="Void" aria-label="Void" aria-pressed="false"></button>
-          <button type="button" class="dj-theme-picker-swatch" data-theme="radiant" style="--sw:#FFE9A3" title="Radiant" aria-label="Radiant" aria-pressed="false"></button>
-          <button type="button" class="dj-theme-picker-swatch" data-theme="deep" style="--sw:#2FB3C9" title="Deep" aria-label="Deep" aria-pressed="false"></button>
-        </div>
-      </div>
-    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--dj-text-muted)">Brand guidelines — v1</div>
     <span aria-hidden="true" style="display:block;width:min(320px,62vw);aspect-ratio:481.29/474.05;background-color:var(--dj-accent);-webkit-mask:url('brand/logo/djaunt-lockup.svg') center/contain no-repeat;mask:url('brand/logo/djaunt-lockup.svg') center/contain no-repeat;filter:drop-shadow(0 0 48px color-mix(in srgb, var(--dj-accent) 18%, transparent));transition:background-color .25s"></span>
     <span style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0">Djaunt</span>
     <p style="margin:0;max-width:62ch;font-size:clamp(16px,2vw,20px);line-height:1.6;color:var(--dj-text-muted);text-wrap:pretty">One identity across music, software, and art. Gold dragon on warm near-black, bone as the second voice, and eight elemental variants for when a project needs a different mood. Everything here is enforced by <a href="brand/tokens/tokens.css">tokens.css</a> and described for agents in <a href="BRANDING.md">BRANDING.md</a>.</p>
   </header>
+
+  <div class="dj-theme-picker" id="dj-theme-picker" role="group" aria-label="Preview theme">
+    <span class="dj-theme-picker-label">Theme</span>
+    <div class="dj-theme-picker-swatches">
+      <button type="button" class="dj-theme-picker-swatch" data-theme="hoard" style="--sw:#D4A017" title="Hoard" aria-label="Hoard" aria-pressed="true"></button>
+      <button type="button" class="dj-theme-picker-swatch" data-theme="fire" style="--sw:#FF6B2C" title="Fire" aria-label="Fire" aria-pressed="false"></button>
+      <button type="button" class="dj-theme-picker-swatch" data-theme="frost" style="--sw:#7FD8F0" title="Frost" aria-label="Frost" aria-pressed="false"></button>
+      <button type="button" class="dj-theme-picker-swatch" data-theme="storm" style="--sw:#9B8CFF" title="Storm" aria-label="Storm" aria-pressed="false"></button>
+      <button type="button" class="dj-theme-picker-swatch" data-theme="stone" style="--sw:#93A98C" title="Stone" aria-label="Stone" aria-pressed="false"></button>
+      <button type="button" class="dj-theme-picker-swatch" data-theme="venom" style="--sw:#A8E01F" title="Venom" aria-label="Venom" aria-pressed="false"></button>
+      <button type="button" class="dj-theme-picker-swatch" data-theme="void" style="--sw:#B0A7C9" title="Void" aria-label="Void" aria-pressed="false"></button>
+      <button type="button" class="dj-theme-picker-swatch" data-theme="radiant" style="--sw:#FFE9A3" title="Radiant" aria-label="Radiant" aria-pressed="false"></button>
+      <button type="button" class="dj-theme-picker-swatch" data-theme="deep" style="--sw:#2FB3C9" title="Deep" aria-label="Deep" aria-pressed="false"></button>
+    </div>
+  </div>
 
   <section style="padding:clamp(56px,8vw,96px) 0;border-bottom:1px solid var(--dj-border);display:flex;flex-direction:column;gap:40px">
     <div style="display:flex;flex-direction:column;gap:12px">
