@@ -1,8 +1,8 @@
 # Djaunt for VS Code
 
 Nine dark color themes generated from the Djaunt brand tokens: `Djaunt Hoard`
-(the default gold identity) plus its eight elemental variants — `Fire`,
-`Frost`, `Storm`, `Stone`, `Venom`, `Void`, `Radiant`, `Deep`.
+(the default gold identity) plus its ten elemental variants — `Fire`,
+`Blood`, `Earth`, `Venom`, `Frost`, `Storm`, `Bloom`, `Stone`, `Void`, `Radiant`.
 
 Editor chrome (background, surface, borders, cursor, selection) follows each
 theme's own accent and background family. Comments, strings, numbers, types,

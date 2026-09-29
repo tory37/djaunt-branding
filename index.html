@@ -48,9 +48,9 @@
      <html> (and mirrors it into every component demo iframe) so the whole
      page — chrome, logos, component demos, and the Elemental-dragons demo
      card (which also defaults to and follows this pick) — previews live in
-     all nine elemental themes. What stays literal is narrow and deliberate:
+     all eleven elemental themes. What stays literal is narrow and deliberate:
      content that documents an actual fixed value (Gold/Bone/Ink's real hex,
-     the 9-theme comparison grids, the semantic success/warning/danger/info
+     the 11-theme comparison grids, the semantic success/warning/danger/info
      colors, section 01's named static asset files) — never just "everything
      above the fold." */
   .dj-theme-picker {
@@ -122,13 +122,15 @@
     <div class="dj-theme-picker-swatches">
       <button type="button" class="dj-theme-picker-swatch" data-theme="hoard" style="--sw:#D4A017" title="Hoard" aria-label="Hoard" aria-pressed="true"></button>
       <button type="button" class="dj-theme-picker-swatch" data-theme="fire" style="--sw:#FF6B2C" title="Fire" aria-label="Fire" aria-pressed="false"></button>
-      <button type="button" class="dj-theme-picker-swatch" data-theme="frost" style="--sw:#7FD8F0" title="Frost" aria-label="Frost" aria-pressed="false"></button>
-      <button type="button" class="dj-theme-picker-swatch" data-theme="storm" style="--sw:#9B8CFF" title="Storm" aria-label="Storm" aria-pressed="false"></button>
-      <button type="button" class="dj-theme-picker-swatch" data-theme="stone" style="--sw:#93A98C" title="Stone" aria-label="Stone" aria-pressed="false"></button>
+      <button type="button" class="dj-theme-picker-swatch" data-theme="blood" style="--sw:#E8475C" title="Blood" aria-label="Blood" aria-pressed="false"></button>
+      <button type="button" class="dj-theme-picker-swatch" data-theme="earth" style="--sw:#B98358" title="Earth" aria-label="Earth" aria-pressed="false"></button>
       <button type="button" class="dj-theme-picker-swatch" data-theme="venom" style="--sw:#A8E01F" title="Venom" aria-label="Venom" aria-pressed="false"></button>
-      <button type="button" class="dj-theme-picker-swatch" data-theme="void" style="--sw:#B0A7C9" title="Void" aria-label="Void" aria-pressed="false"></button>
-      <button type="button" class="dj-theme-picker-swatch" data-theme="radiant" style="--sw:#FFE9A3" title="Radiant" aria-label="Radiant" aria-pressed="false"></button>
-      <button type="button" class="dj-theme-picker-swatch" data-theme="deep" style="--sw:#2FB3C9" title="Deep" aria-label="Deep" aria-pressed="false"></button>
+      <button type="button" class="dj-theme-picker-swatch" data-theme="frost" style="--sw:#6BA4FF" title="Frost" aria-label="Frost" aria-pressed="false"></button>
+      <button type="button" class="dj-theme-picker-swatch" data-theme="storm" style="--sw:#9B8CFF" title="Storm" aria-label="Storm" aria-pressed="false"></button>
+      <button type="button" class="dj-theme-picker-swatch" data-theme="bloom" style="--sw:#FF6FB0" title="Bloom" aria-label="Bloom" aria-pressed="false"></button>
+      <button type="button" class="dj-theme-picker-swatch" data-theme="stone" style="--sw:#8E9196" title="Stone" aria-label="Stone" aria-pressed="false"></button>
+      <button type="button" class="dj-theme-picker-swatch" data-theme="void" style="--sw:#CFCFCF" title="Void" aria-label="Void" aria-pressed="false"></button>
+      <button type="button" class="dj-theme-picker-swatch" data-theme="radiant" style="--sw:#F4F4F2" title="Radiant" aria-label="Radiant" aria-pressed="false"></button>
     </div>
   </div>
 
@@ -227,20 +229,22 @@
   <section id="elemental-dragons" style="padding:clamp(56px,8vw,96px) 0;border-bottom:1px solid var(--dj-border);display:flex;flex-direction:column;gap:40px">
     <div style="display:flex;flex-direction:column;gap:12px">
       <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--dj-text-muted)">03 — Elemental dragons</div>
-      <h2 style="margin:0;font-family:'Archivo',sans-serif;font-weight:700;letter-spacing:-0.02em;font-size:clamp(28px,4vw,44px);line-height:1.08">Nine themes, one system</h2>
+      <h2 style="margin:0;font-family:'Archivo',sans-serif;font-weight:700;letter-spacing:-0.02em;font-size:clamp(28px,4vw,44px);line-height:1.08">Eleven themes, one system</h2>
       <p style="margin:0;max-width:62ch;font-size:16px;line-height:1.6;color:var(--dj-text-muted);text-wrap:pretty">Each theme swaps the accent and the background family. Type, spacing, geometry, and the semantic colors never move. One theme per surface — an element is a mood for a whole product, not a palette to pick from per component. The demo card below defaults to and follows the picker above; its own hoard/fire/frost/… buttons let you preview any theme locally without moving the rest of the page.</p>
     </div>
 
     <div style="display:flex;flex-wrap:wrap;gap:8px">
       <button type="button" onClick="{{ pick0 }}" style="{{ style0 }}">hoard</button>
       <button type="button" onClick="{{ pick1 }}" style="{{ style1 }}">fire</button>
-      <button type="button" onClick="{{ pick2 }}" style="{{ style2 }}">frost</button>
-      <button type="button" onClick="{{ pick3 }}" style="{{ style3 }}">storm</button>
-      <button type="button" onClick="{{ pick4 }}" style="{{ style4 }}">stone</button>
-      <button type="button" onClick="{{ pick5 }}" style="{{ style5 }}">venom</button>
-      <button type="button" onClick="{{ pick6 }}" style="{{ style6 }}">void</button>
-      <button type="button" onClick="{{ pick7 }}" style="{{ style7 }}">radiant</button>
-      <button type="button" onClick="{{ pick8 }}" style="{{ style8 }}">deep</button>
+      <button type="button" onClick="{{ pick2 }}" style="{{ style2 }}">blood</button>
+      <button type="button" onClick="{{ pick3 }}" style="{{ style3 }}">earth</button>
+      <button type="button" onClick="{{ pick4 }}" style="{{ style4 }}">venom</button>
+      <button type="button" onClick="{{ pick5 }}" style="{{ style5 }}">frost</button>
+      <button type="button" onClick="{{ pick6 }}" style="{{ style6 }}">storm</button>
+      <button type="button" onClick="{{ pick7 }}" style="{{ style7 }}">bloom</button>
+      <button type="button" onClick="{{ pick8 }}" style="{{ style8 }}">stone</button>
+      <button type="button" onClick="{{ pick9 }}" style="{{ style9 }}">void</button>
+      <button type="button" onClick="{{ pick10 }}" style="{{ style10 }}">radiant</button>
     </div>
 
     <div style="border:1px solid {{ t.border }};border-radius:4px;overflow:hidden">
@@ -317,13 +321,15 @@
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:2px;border:1px solid #2A251C;border-radius:4px;overflow:hidden">
       <div style="background:#0D0C0A;padding:20px 16px;display:flex;flex-direction:column;gap:14px"><span style="width:100%;height:36px;border-radius:2px;background:#D4A017"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#C8C0AE">hoard</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8E887A">#D4A017</span></div>
       <div style="background:#100A07;padding:20px 16px;display:flex;flex-direction:column;gap:14px"><span style="width:100%;height:36px;border-radius:2px;background:#FF6B2C"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#C8C0AE">fire</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8E887A">#FF6B2C</span></div>
-      <div style="background:#070F12;padding:20px 16px;display:flex;flex-direction:column;gap:14px"><span style="width:100%;height:36px;border-radius:2px;background:#7FD8F0"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#C8C0AE">frost</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8E887A">#7FD8F0</span></div>
-      <div style="background:#0A0912;padding:20px 16px;display:flex;flex-direction:column;gap:14px"><span style="width:100%;height:36px;border-radius:2px;background:#9B8CFF"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#C8C0AE">storm</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8E887A">#9B8CFF</span></div>
-      <div style="background:#0A0C09;padding:20px 16px;display:flex;flex-direction:column;gap:14px"><span style="width:100%;height:36px;border-radius:2px;background:#93A98C"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#C8C0AE">stone</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8E887A">#93A98C</span></div>
+      <div style="background:#0F0709;padding:20px 16px;display:flex;flex-direction:column;gap:14px"><span style="width:100%;height:36px;border-radius:2px;background:#E8475C"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#C8C0AE">blood</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8E887A">#E8475C</span></div>
+      <div style="background:#0E0A07;padding:20px 16px;display:flex;flex-direction:column;gap:14px"><span style="width:100%;height:36px;border-radius:2px;background:#B98358"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#C8C0AE">earth</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8E887A">#B98358</span></div>
       <div style="background:#080F04;padding:20px 16px;display:flex;flex-direction:column;gap:14px"><span style="width:100%;height:36px;border-radius:2px;background:#A8E01F"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#C8C0AE">venom</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8E887A">#A8E01F</span></div>
-      <div style="background:#08080B;padding:20px 16px;display:flex;flex-direction:column;gap:14px"><span style="width:100%;height:36px;border-radius:2px;background:#B0A7C9"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#C8C0AE">void</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8E887A">#B0A7C9</span></div>
-      <div style="background:#12100A;padding:20px 16px;display:flex;flex-direction:column;gap:14px"><span style="width:100%;height:36px;border-radius:2px;background:#FFE9A3"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#C8C0AE">radiant</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8E887A">#FFE9A3</span></div>
-      <div style="background:#050F11;padding:20px 16px;display:flex;flex-direction:column;gap:14px"><span style="width:100%;height:36px;border-radius:2px;background:#2FB3C9"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#C8C0AE">deep</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8E887A">#2FB3C9</span></div>
+      <div style="background:#060B14;padding:20px 16px;display:flex;flex-direction:column;gap:14px"><span style="width:100%;height:36px;border-radius:2px;background:#6BA4FF"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#C8C0AE">frost</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8E887A">#6BA4FF</span></div>
+      <div style="background:#0A0912;padding:20px 16px;display:flex;flex-direction:column;gap:14px"><span style="width:100%;height:36px;border-radius:2px;background:#9B8CFF"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#C8C0AE">storm</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8E887A">#9B8CFF</span></div>
+      <div style="background:#10070C;padding:20px 16px;display:flex;flex-direction:column;gap:14px"><span style="width:100%;height:36px;border-radius:2px;background:#FF6FB0"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#C8C0AE">bloom</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8E887A">#FF6FB0</span></div>
+      <div style="background:#0C0D0E;padding:20px 16px;display:flex;flex-direction:column;gap:14px"><span style="width:100%;height:36px;border-radius:2px;background:#8E9196"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#C8C0AE">stone</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8E887A">#8E9196</span></div>
+      <div style="background:#000000;padding:20px 16px;display:flex;flex-direction:column;gap:14px"><span style="width:100%;height:36px;border-radius:2px;background:#CFCFCF"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#C8C0AE">void</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8E887A">#CFCFCF</span></div>
+      <div style="background:#0F0F10;padding:20px 16px;display:flex;flex-direction:column;gap:14px"><span style="width:100%;height:36px;border-radius:2px;background:#F4F4F2"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#C8C0AE">radiant</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8E887A">#F4F4F2</span></div>
     </div>
 
     <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:center;background:var(--dj-surface);border:1px solid var(--dj-border);border-radius:4px;padding:24px">
@@ -756,7 +762,7 @@
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{
-  &quot;theme&quot;: {&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;hoard&quot;,&quot;fire&quot;,&quot;frost&quot;,&quot;storm&quot;,&quot;stone&quot;,&quot;venom&quot;,&quot;void&quot;,&quot;radiant&quot;,&quot;deep&quot;],&quot;default&quot;:&quot;hoard&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Preview&quot;},
+  &quot;theme&quot;: {&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;hoard&quot;,&quot;fire&quot;,&quot;blood&quot;,&quot;earth&quot;,&quot;venom&quot;,&quot;frost&quot;,&quot;storm&quot;,&quot;bloom&quot;,&quot;stone&quot;,&quot;void&quot;,&quot;radiant&quot;],&quot;default&quot;:&quot;hoard&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Preview&quot;},
   &quot;glow&quot;: {&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Preview&quot;}
 }">
 const THEMES = [
@@ -764,20 +770,24 @@ const THEMES = [
    headline:'Gold on warm near-black', note:'The default. Use it unless a project has a reason to reach for an element.'},
   {key:'fire',    label:'Fire', accent:'#FF6B2C', hi:'#FF9560', accentDeep:'#7A2408', accent2:'#54D7A7', accent3:'#5A74D8', accent4:'#D754B0', bg:'#100A07', surface:'#1A100B', raised:'#241610', border:'#352115',
    headline:'Heat and urgency', note:'Destructive actions, live and recording states, anything that should feel hot to the touch.'},
-  {key:'frost',   label:'Frost', accent:'#7FD8F0', hi:'#B3EAF8', accentDeep:'#14556E', accent2:'#DB94D7', accent3:'#CCDB94', accent4:'#94DBBB', bg:'#070F12', surface:'#0C1720', raised:'#122029', border:'#1B2E38',
+  {key:'blood',   label:'Blood', accent:'#E8475C', hi:'#F58090', accentDeep:'#6E1424', accent2:'#5FCFB0', accent3:'#E0B85F', accent4:'#7A8FE0', bg:'#0F0709', surface:'#190C0F', raised:'#231216', border:'#341B20',
+   headline:'Deep and decisive', note:'Alerts, high-stakes actions, anything with weight. Red is the loudest hue in the set — use it deliberately.'},
+  {key:'earth',   label:'Earth', accent:'#B98358', hi:'#D8A87F', accentDeep:'#5A3A22', accent2:'#7FB58A', accent3:'#8A8FC9', accent4:'#C9737F', bg:'#0E0A07', surface:'#17110C', raised:'#211812', border:'#33261B',
+   headline:'Warm and grounded', note:'Craft, tactile and analog tools, notes. Brown for surfaces that should feel handmade.'},
+  {key:'venom',   label:'Venom', accent:'#A8E01F', hi:'#C9F05E', accentDeep:'#47660A', accent2:'#557EC1', accent3:'#AD5AC3', accent4:'#ADBB44', bg:'#080F04', surface:'#0F170A', raised:'#15200E', border:'#1F2E14',
+   headline:'Acidic and alert', note:'Loud by design. Use sparingly, and never next to another element.'},
+  {key:'frost',   label:'Frost', accent:'#6BA4FF', hi:'#A6C8FF', accentDeep:'#173F80', accent2:'#F0B46B', accent3:'#B58CE8', accent4:'#6BD6B5', bg:'#060B14', surface:'#0B1420', raised:'#111E2E', border:'#1B2C44',
    headline:'Cold and precise', note:'Analytical surfaces — dashboards, dev tools, anything dense with numbers.'},
   {key:'storm',   label:'Storm', accent:'#9B8CFF', hi:'#C3B8FF', accentDeep:'#3B2C86', accent2:'#E0E9A2', accent3:'#BCE9A2', accent4:'#A2BCE9', bg:'#0A0912', surface:'#12101F', raised:'#1A1729', border:'#262138',
    headline:'Electric and in motion', note:'Music, audio, generative work. The most kinetic theme in the set.'},
-  {key:'stone',   label:'Stone', accent:'#93A98C', hi:'#BACBB4', accentDeep:'#3C4D39', accent2:'#8697AF', accent3:'#AF86A4', accent4:'#ABAF86', bg:'#0A0C09', surface:'#111510', raised:'#181D16', border:'#242A21',
-   headline:'Weathered and quiet', note:'Archives, long-form reading, documentation. Recedes so the words carry.'},
-  {key:'venom',   label:'Venom', accent:'#A8E01F', hi:'#C9F05E', accentDeep:'#47660A', accent2:'#557EC1', accent3:'#AD5AC3', accent4:'#ADBB44', bg:'#080F04', surface:'#0F170A', raised:'#15200E', border:'#1F2E14',
-   headline:'Acidic and alert', note:'Loud by design. Use sparingly, and never next to another element.'},
-  {key:'void',    label:'Void', accent:'#B0A7C9', hi:'#D6CFE6', accentDeep:'#3A3450', accent2:'#C3C6AA', accent3:'#B0C6AA', accent4:'#AAB5C6', bg:'#08080B', surface:'#0F0F14', raised:'#16161D', border:'#22222C',
-   headline:'Near-monochrome', note:'The dimmest theme. When the interface should almost disappear.'},
-  {key:'radiant', label:'Radiant', accent:'#FFE9A3', hi:'#FFF6D6', accentDeep:'#8A6A1E', accent2:'#B4EED6', accent3:'#C3B4EE', accent4:'#EEB4C2', bg:'#12100A', surface:'#1C1810', raised:'#262016', border:'#342C1E',
-   headline:'Pale gold, near-white', note:'The lightest dark theme — gold pushed toward bone.'},
-  {key:'deep',    label:'Deep', accent:'#2FB3C9', hi:'#77D7E5', accentDeep:'#0E4A57', accent2:'#B359B5', accent3:'#9EAC4C', accent4:'#4CAC7A', bg:'#050F11', surface:'#0B1A1D', raised:'#102429', border:'#183339',
-   headline:'Submerged and dense', note:'Calm, heavy, underwater. Good for focus modes and players.'}
+  {key:'bloom',   label:'Bloom', accent:'#FF6FB0', hi:'#FFA6CF', accentDeep:'#7A1C4C', accent2:'#6FE0B8', accent3:'#B3A2FF', accent4:'#F0D27A', bg:'#10070C', surface:'#1A0D14', raised:'#24141D', border:'#36202C',
+   headline:'Soft and expressive', note:'Social, creative, playful. Pink for surfaces that should feel warm and human.'},
+  {key:'stone',   label:'Stone', accent:'#8E9196', hi:'#B8BBC0', accentDeep:'#36393D', accent2:'#8FB0C9', accent3:'#B08FC9', accent4:'#C9B08F', bg:'#0C0D0E', surface:'#131415', raised:'#1A1C1D', border:'#27292B',
+   headline:'Weathered and neutral', note:'Archives, long-form reading, documentation. Mid-gray that recedes so the words carry.'},
+  {key:'void',    label:'Void', accent:'#CFCFCF', hi:'#EDEDED', accentDeep:'#2E2E2E', accent2:'#9BB8C9', accent3:'#B39BC9', accent4:'#C9B99B', bg:'#000000', surface:'#080808', raised:'#101010', border:'#1E1E1E',
+   headline:'True black', note:'The darkest theme. When the interface should almost disappear.'},
+  {key:'radiant', label:'Radiant', accent:'#F4F4F2', hi:'#FFFFFF', accentDeep:'#6B6B68', accent2:'#A8E6CF', accent3:'#C3B4EE', accent4:'#F0B4C8', bg:'#0F0F10', surface:'#171718', raised:'#202021', border:'#2E2E30',
+   headline:'Clean and bright', note:'The lightest dark theme — near-white on charcoal.'}
 ];
 
 class Component extends DCLogic {
@@ -853,7 +863,7 @@ class Component extends DCLogic {
   // to a specific node goes stale the next time that happens; a delegated
   // listener on `document` never does.
   const THEME_STORAGE_KEY = 'dj-preview-theme';
-  const VALID_THEMES = ['hoard', 'fire', 'frost', 'storm', 'stone', 'venom', 'void', 'radiant', 'deep'];
+  const VALID_THEMES = ['hoard', 'fire', 'blood', 'earth', 'venom', 'frost', 'storm', 'bloom', 'stone', 'void', 'radiant'];
 
   function djApplyThemeTo(doc, theme) {
     try { doc.documentElement.setAttribute('data-dj-theme', theme); } catch (e) {}

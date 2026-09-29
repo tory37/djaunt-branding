@@ -33,17 +33,19 @@ const syntax = {
   punctuation: bone[400],
 };
 
-const THEME_ORDER = ["hoard", "fire", "frost", "storm", "stone", "venom", "void", "radiant", "deep"];
+const THEME_ORDER = ["hoard", "fire", "blood", "earth", "venom", "frost", "storm", "bloom", "stone", "void", "radiant"];
 const CHARACTER = {
-  hoard: "Gold. The base identity.",
+  hoard: "Gold. The base identity. Use unless there\'s a reason not to.",
   fire: "Heat, urgency, destructive actions, live/recording states.",
-  frost: "Cold, precise, analytical. Good for data and dev tools.",
+  blood: "Red. Weight and consequence. Alerts, high-stakes actions; loud, use deliberately.",
+  earth: "Brown. Warm, grounded, tactile. Good for craft, notes, analog-feeling tools.",
+  venom: "Acidic, alert, hacker-adjacent. Use sparingly; it's loud.",
+  frost: "Blue. Cold, precise, analytical. Good for data and dev tools.",
   storm: "Electric, generative, in-motion. Good for music and audio.",
-  stone: "Weathered, quiet, documentary. Good for archives and reading.",
-  venom: "Acidic, alert, hacker-adjacent. Use sparingly.",
-  void: "Muted, near-monochrome, dimmest of the set.",
-  radiant: "Pale gold, near-white. The lightest dark theme.",
-  deep: "Submerged teal, calm and dense.",
+  bloom: "Pink. Soft, expressive, playful. Good for social and creative tools.",
+  stone: "Gray. Weathered, quiet, neutral. Good for archives and reading.",
+  void: "Black. True black, the darkest of the set.",
+  radiant: "White. Near-white on charcoal, the lightest dark theme.",
 };
 
 function hexToRgb(hex) {

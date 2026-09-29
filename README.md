@@ -33,7 +33,7 @@ tools)? Self-host instead:
 <link rel="stylesheet" href="path/to/brand/fonts.css">
 ```
 
-Themes: `hoard` (default gold), `fire`, `frost`, `storm`, `stone`, `venom`, `void`, `radiant`, `deep`.
+Themes: `hoard` (default gold), `fire`, `blood`, `earth`, `venom`, `frost`, `storm`, `bloom`, `stone`, `void`, `radiant`.
 
 Shared components (buttons, switches, panels, …) live in `components/` and
 pull in the same way:

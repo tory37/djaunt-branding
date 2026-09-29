@@ -56,7 +56,7 @@ context requires it (print, email, embedding in a light app). Light mode is a
 single parchment variant: `class="dj-light"` or `data-dj-mode="light"`.
 
 ### Elemental themes
-Eight elemental dragons, each a theme that swaps **accent + background family**
+Eleven elemental dragons — one per color of the spectrum, black to white — each a theme that swaps **accent + background family**
 while keeping bone text, gold-derived geometry, and all type and spacing
 identical. Apply with `data-dj-theme` on `<html>` or any container:
 
@@ -68,13 +68,15 @@ identical. Apply with `data-dj-theme` on `<html>` or any container:
 |---|---|---|
 | `hoard` (default) | `#D4A017` | Gold. The base identity. Use unless there's a reason not to. |
 | `fire` | `#FF6B2C` | Heat, urgency, destructive actions, live/recording states. |
-| `frost` | `#7FD8F0` | Cold, precise, analytical. Good for data and dev tools. |
-| `storm` | `#9B8CFF` | Electric, generative, in-motion. Good for music and audio. |
-| `stone` | `#93A98C` | Weathered, quiet, documentary. Good for archives and reading. |
+| `blood` | `#E8475C` | Red. Weight and consequence. Alerts, high-stakes actions; loud, use deliberately. |
+| `earth` | `#B98358` | Brown. Warm, grounded, tactile. Good for craft, notes, analog-feeling tools. |
 | `venom` | `#A8E01F` | Acidic, alert, hacker-adjacent. Use sparingly; it's loud. |
-| `void` | `#B0A7C9` | Muted, near-monochrome, dimmest of the set. |
-| `radiant` | `#FFE9A3` | Pale gold, near-white. The lightest dark theme. |
-| `deep` | `#2FB3C9` | Submerged teal, calm and dense. |
+| `frost` | `#6BA4FF` | Blue. Cold, precise, analytical. Good for data and dev tools. |
+| `storm` | `#9B8CFF` | Electric, generative, in-motion. Good for music and audio. |
+| `bloom` | `#FF6FB0` | Pink. Soft, expressive, playful. Good for social and creative tools. |
+| `stone` | `#8E9196` | Gray. Weathered, quiet, neutral. Good for archives and reading. |
+| `void` | `#CFCFCF` | Black. True black, the darkest of the set. |
+| `radiant` | `#F4F4F2` | White. Near-white on charcoal, the lightest dark theme. |
 
 **One theme per surface.** Never mix two elemental accents in one view. An
 element is a mood for a whole product, not a palette to pick from per-component.
